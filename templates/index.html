@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <title>ODS Singlish Converter</title>
-
+  <title>Singlish Unicode Converter | ODS</title>
   <!-- Link to external CSS in Flask static folder -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
   <!-- Google Analytics gtag.js snippet -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDWXDMBJN7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-
     function gtag() {
       dataLayer.push(arguments);
     }
-
     gtag('js', new Date());
     gtag('config', 'G-BDWXDMBJN7');
   </script>
@@ -25,15 +21,15 @@
 <body>
   <!-- Header titles -->
   <div class="titles">
-    <span class="small-title">Program by ODS (pvt).LTD</span><br />
-    <span class="main-title">Singlish to Sinhala ODS Converter</span>
+    <span class="main-title">Singlish to Unicode Converter</span><br />
+    <span class="small-title">Type in transliterated Sinhala (Singlish) and get text in Unicode</span>
   </div>
 
   <!-- Input section -->
   <div id="input-container" class="area-container">
     <div id="input-area">
       <!-- Label -->
-      <span class="secondary-title">SINGLISH</span>
+      <span class="secondary-title">Type Singlish</span>
       <!-- Button to clear textarea -->
       <button id="clear-button" onclick="clearText()">CLEAR</button>
       <br />
@@ -55,9 +51,9 @@
   <div id="output-container" class="area-container">
     <div id="output-area">
       <!-- Label -->
-      <span class="secondary-title">SINHALA OUTPUT</span><br />
+      <span class="secondary-title">Unicode Result</span><br />
       <!-- Div to display converted Sinhala text -->
-      <div id="output" tabindex="0">Start typing below ...</div>
+      <div id="output" tabindex="0">Result will appear here...</div>
       <br />
       <!-- Button to copy output text to clipboard -->
       <button id="copy-button" onclick="copyText()">COPY TEXT</button>
@@ -66,12 +62,15 @@
 
   <br /><br />
 
+  <!-- Sidebar Toggle Button -->
+  <button id="toggleBtn" class="toggle-button">☰ Character Map</button>
+   <div id="sidebar" class="sidebar">
   <!-- Cheat Sheet / Transliteration scheme -->
   <div class="scheme">
-    <h2 style="color:#03DAC6">Cheat Sheet</h2>
+    <h2 style="color:#632a2a">Character Map</h2>
 
     <!-- Vowels table -->
-    <h3 style="color:#BB86FC"><i>Vowels</i></h3>
+    <h3 style="color:#888888"><i>Vowels</i></h3>
     <table>
       <tr>
         <td>a අ</td>
@@ -101,7 +100,7 @@
     <br />
 
     <!-- Consonants table -->
-    <h3 style="color:#BB86FC"><i>Consonants</i></h3>
+    <h3 style="color:#888888"><i>Consonants</i></h3>
     <table>
       <tr>
         <td>a\n අං</td>
@@ -170,7 +169,7 @@
     </table>
 
     <!-- Specials -->
-    <h3 style="color:#f90000"><i>Special</i></h3>
+    <h3 style="color:#888888"><i>Special</i></h3>
     <table>
       <tr>
         <td>GNa ඥ</td>
@@ -178,7 +177,7 @@
     </table>
 
     <!-- Deriving consonants -->
-    <h3 style="color:#ffbc11"><i>Deriving Consonants</i></h3>
+    <h3 style="color:#888888"><i>Deriving Consonants</i></h3>
     <table>
       <tr>
         <td>g ග්</td>
@@ -213,6 +212,7 @@
         <td>gYa ග්‍ය</td>
       </tr>
     </table>
+  </div>
   </div>
 
   <br /><br />
