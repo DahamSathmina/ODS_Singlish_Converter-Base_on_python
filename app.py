@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 app = Flask(__name__)
 
