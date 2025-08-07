@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>ODS Singlish Converter</title>
+
+  <!-- Link to external CSS in Flask static folder -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+  <!-- Google Analytics gtag.js snippet -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDWXDMBJN7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-BDWXDMBJN7');
+  </script>
+</head>
+
+<body>
+  <!-- Header titles -->
+  <div class="titles">
+    <span class="small-title">Program by ODS (pvt).LTD</span><br />
+    <span class="main-title">Singlish to Sinhala ODS Converter</span>
+  </div>
+
+  <!-- Input section -->
+  <div id="input-container" class="area-container">
+    <div id="input-area">
+      <!-- Label -->
+      <span class="secondary-title">SINGLISH</span>
+      <!-- Button to clear textarea -->
+      <button id="clear-button" onclick="clearText()">CLEAR</button>
+      <br />
+      <!-- Textarea for user input -->
+      <textarea
+        placeholder="Enter Your text here"
+        id="ta"
+        onkeyup="startText();"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="singlish"
+      ></textarea>
+    </div>
+  </div>
+
+  <!-- Output section -->
+  <div id="output-container" class="area-container">
+    <div id="output-area">
+      <!-- Label -->
+      <span class="secondary-title">SINHALA OUTPUT</span><br />
+      <!-- Div to display converted Sinhala text -->
+      <div id="output" tabindex="0">Start typing below ...</div>
+      <br />
+      <!-- Button to copy output text to clipboard -->
+      <button id="copy-button" onclick="copyText()">COPY TEXT</button>
+    </div>
+  </div>
+
+  <br /><br />
+
+  <!-- Cheat Sheet / Transliteration scheme -->
+  <div class="scheme">
+    <h2 style="color:#03DAC6">Cheat Sheet</h2>
+
+    <!-- Vowels table -->
+    <h3 style="color:#BB86FC"><i>Vowels</i></h3>
+    <table>
+      <tr>
+        <td>a අ</td>
+        <td>aa ආ</td>
+        <td>A ඇ</td>
+        <td>Aa ඈ</td>
+        <td>i ඉ</td>
+        <td>ii ඊ</td>
+      </tr>
+      <tr>
+        <td>u උ</td>
+        <td>uu ඌ</td>
+        <td><i>k</i><b>ru</b> කෘ</td>
+        <td><i>k</i><b>ruu</b> කෲ</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>e එ</td>
+        <td>ea ඒ</td>
+        <td>I ඓ</td>
+        <td>o ඔ</td>
+        <td>oe ඕ</td>
+        <td>au ඖ</td>
+      </tr>
+    </table>
+    <br />
+
+    <!-- Consonants table -->
+    <h3 style="color:#BB86FC"><i>Consonants</i></h3>
+    <table>
+      <tr>
+        <td>a\n අං</td>
+        <td>a\h අඃ</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>ka ක</td>
+        <td>kha ඛ</td>
+        <td>ga ග</td>
+        <td>gha ඝ</td>
+        <td>\N ඞ</td>
+        <td>nnga ඟ</td>
+      </tr>
+      <tr>
+        <td>cha ච</td>
+        <td>Cha ඡ</td>
+        <td>ja ජ</td>
+        <td>qa ඣ</td>
+        <td>KNa ඤ</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>ta ට</td>
+        <td>Ta ඨ</td>
+        <td>da ඨ</td>
+        <td>Da ඪ</td>
+        <td>Na ණ</td>
+        <td>nnda ඬ</td>
+      </tr>
+      <tr>
+        <td>tha ත </td>
+        <td>Tha ථ </td>
+        <td>dha ද </td>
+        <td>Dha ධ </td>
+        <td>na න </td>
+        <td>nndha ඳ</td>
+      </tr>
+      <tr>
+        <td>pa ප</td>
+        <td>P ඵ</td>
+        <td>ba බ</td>
+        <td>bha භ</td>
+        <td>ma ම</td>
+        <td>Ba ඹ</td>
+      </tr>
+      <tr>
+        <td>ya ය</td>
+        <td>ra ර</td>
+        <td>la ල</td>
+        <td>va ව</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>sha ශ </td>
+        <td>Sha ෂ </td>
+        <td>sa ස</td>
+        <td>ha හ</td>
+        <td>La ළ</td>
+        <td>fa ෆ</td>
+      </tr>
+    </table>
+
+    <!-- Specials -->
+    <h3 style="color:#f90000"><i>Special</i></h3>
+    <table>
+      <tr>
+        <td>GNa ඥ</td>
+      </tr>
+    </table>
+
+    <!-- Deriving consonants -->
+    <h3 style="color:#ffbc11"><i>Deriving Consonants</i></h3>
+    <table>
+      <tr>
+        <td>g ග්</td>
+        <td>ga ග</td>
+        <td>gaa ගා</td>
+        <td>gA ගැ</td>
+        <td>gAa ගෑ</td>
+        <td>gi ගි</td>
+      </tr>
+      <tr>
+        <td>gii ගී</td>
+        <td>gu ගු</td>
+        <td>guu ගූ</td>
+        <td>ge ගෙ</td>
+        <td>gae ගේ</td>
+        <td>go ගො</td>
+      </tr>
+      <tr>
+        <td>goe ගෝ</td>
+        <td>gau ගෞ</td>
+        <td>gra ග්‍ර</td>
+        <td>graa ග්‍රා</td>
+        <td>grA ග්‍රැ</td>
+        <td>grAa ග්‍රෑ</td>
+      </tr>
+      <tr>
+        <td>gri ග්‍රි</td>
+        <td>grii ග්‍රී</td>
+        <td>gru ගෘ</td>
+        <td>gruu ගෲ</td>
+        <td>nnga ඟ</td>
+        <td>gYa ග්‍ය</td>
+      </tr>
+    </table>
+  </div>
+
+  <br /><br />
+
+  <!-- Include your main JavaScript file for transliteration logic -->
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+
+  <!-- Register service worker for offline support -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('sw.js')
+        .then(function () {
+          console.log('Service Worker Registered');
+        });
+    }
+  </script>
+
+  <!-- JavaScript for sending user input to Flask backend for conversion -->
+  <script>
+    const inputBox = document.getElementById("ta");
+    const outputBox = document.getElementById("output");
+
+    inputBox.addEventListener("input", async () => {
+      const res = await fetch("/convert", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: inputBox.value }),
+      });
+      const data = await res.json();
+      outputBox.textContent = data.result;
+    });
+  </script>
+</body>
+
+</html>
