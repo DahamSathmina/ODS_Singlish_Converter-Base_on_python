@@ -4,9 +4,12 @@
   <meta charset="UTF-8" />
   <title>Singlish Unicode Converter | ODS</title>
   <link rel="shortcut icon" href="./assets/icons/web/favicon.ico" type="image/x-icon">
-  <!-- Link to external CSS in Flask static folder -->
+
+  <!-- Link to CSS, js and logo in Flask static folder -->
+  <link rel="icon" href="{{ url_for('static', filename='main_logo.png') }}" type="image/x-icon" />
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
   <script src="{{ url_for('static', filename='script.js') }}"></script>
+
   <!-- Google Analytics gtag.js snippet -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDWXDMBJN7"></script>
   <script>
@@ -23,7 +26,7 @@
   <header>
     <h1 class="header-title">ODS Singlish Converter</h1>
     <div class="header">
-      <img src="{{ url_for('static', filename='logo.svg') }}" alt="Logo" class="logo" />
+      <img src="{{ url_for('static', filename='main_logo.svg') }}" alt="Logo" class="logo" />
     </div>
   </header>
 

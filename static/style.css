@@ -40,13 +40,14 @@ header{
     z-index: 1000;
 }
 .logo {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     margin: 0px;
+    bottom: 5px;
 }
 .header-title {
-    color: #ffffff;
-    padding-left: 100px;
+    color: #fafafa;
+    padding-left: 35px;
     padding-top: 25px;
     font-size: 20px;
     font-weight: 500;
@@ -76,8 +77,8 @@ body{
     font-weight: 600;    
 }
 .small-title{
-    font-size: 18px; 
-    color: #e2e2e2;
+    font-size: 16px; 
+    color: #d8d8d8;
     font-weight: 400;
 }
 .area-container{
@@ -87,7 +88,7 @@ body{
     padding-bottom: 20px;
     background-color: #2b384bfb;
     opacity: 80%;
-    border-radius: 18px;
+    border-radius: 13px;
 }
 #output-container{
     width:100%;
@@ -95,7 +96,7 @@ body{
     margin: auto;
     background-color: #2b384bfb;
     opacity: 80%;
-    border-radius: 18px;
+    border-radius: 13px;
     margin-top: 20px;
 }
 
@@ -114,9 +115,9 @@ body{
     padding-top:10px;
 }
 .secondary-title{
-    font-size: 15px; 
+    font-size: 16px; 
     font-weight: 600;
-    color: #ff1313;
+    color: #ff0000;
 }
 
 .glow{
@@ -130,9 +131,9 @@ textarea {
     padding: 12px 20px;
     box-sizing: border-box;
     border: 1.5px solid #ffffffe8;
-    border-radius: 10px;
+    border-radius: 13px;
     resize: none;
-    caret-color: hsl(0, 0%, 86%);
+    caret-color: hsl(0, 0%, 93%);
     font-size:17px;
     color:#ffffff;
     background-color: rgba(52, 58, 71, 0.907);
@@ -158,11 +159,12 @@ textarea {
     color: #fff;
     padding: 5px;
     float:right;
-    border-radius: 8px;
+    border-radius: 7px;
+    transition: border-left 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 #clear-button:hover{
     background-color: #ffffff43;
-    box-shadow: 0px 2px 6px rgba(10, 10, 10, 0.477)
+    border-left: 2.5px solid #ffc800;
     
 }
 
@@ -195,17 +197,19 @@ td {
 /* Sidebar Styles */
 .sidebar {
   position: fixed;
-  top: 0;
+  top: 0px;
   right: -400px;
   width: 300px;
-  height: 120%;
-  background-color: #000000a4;
+  height: 100vh;
+  background-color: #1f2937dc;
+  backdrop-filter: blur(10px);
   color: white;
   padding: 20px;
-  box-shadow: -2px 0 10px rgba(255, 11, 11, 0.692);
-  transition: right 0.3s ease;
-  z-index: 1000;
+  box-shadow: 0px 0 10px rgba(255, 11, 11, 0.782);
+  transition: right 0.5s ease;
   overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 100;
 }
 
 .sidebar.active {
@@ -218,20 +222,23 @@ td {
   top: 20px;
   right: 20px;
   z-index: 1100;
-  background-color: #00b20368;
+  background-color: #00d504;
   color: white;
   padding: 7px 11px;
-  border-color: #00d504f9;
+  border: none;
   font-size: 13px;
-  border-radius: 20px;
+  border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(9, 255, 0, 0.3);
+  box-shadow: 0 2px 6px rgba(9, 255, 0, 0.375);
+  transition: font-size 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, border-left 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .toggle-button:hover {
-  background-color: #00d504f9;
-  border:none;
-  box-shadow: 0 2px 6px rgba(9, 255, 0, 0.556);
+  font-size: 14px;
+  background-color: #00d5048e;
+  border-left: 3.5px solid #00ff00;
+  box-shadow: 0 2px 6px rgba(9, 255, 0, 0.350);
   padding: 8px 12px;
 }
 .footer_bar{
@@ -244,7 +251,7 @@ td {
     width: 100%;
     align-content: center;
     background: #151d25;
-    border-radius: 15px 15px 0px 0px; 
+    border-radius: 18px 18px 0px 0px; 
     border: 0px;
     border-top: 4px solid #ff0d0de0;
 }
