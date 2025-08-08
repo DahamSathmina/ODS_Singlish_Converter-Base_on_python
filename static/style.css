@@ -42,12 +42,12 @@ header{
 .logo {
     width: 35px;
     height: 35px;
-    margin: 0;
+    margin: 0px;
 }
 .header-title {
     color: #ffffff;
-    text-align: center;
-    justify-content: center;
+    padding-left: 100px;
+    padding-top: 25px;
     font-size: 20px;
     font-weight: 500;
     margin: 0;
