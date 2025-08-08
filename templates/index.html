@@ -35,7 +35,7 @@
       <br />
       <!-- Textarea for user input -->
       <textarea
-        placeholder="Enter Your text here"
+        placeholder="Type Your text here..."
         id="ta"
         onkeyup="startText();"
         autocomplete="off"
@@ -67,8 +67,6 @@
    <div id="sidebar" class="sidebar">
   <!-- Cheat Sheet / Transliteration scheme -->
   <div class="scheme">
-    <h2 style="color:#632a2a">Character Map</h2>
-
     <!-- Vowels table -->
     <h3 style="color:#888888"><i>Vowels</i></h3>
     <table>
@@ -215,7 +213,13 @@
   </div>
   </div>
 
-  <br /><br />
+  <!------------------footer------------------->
+  <footer>
+    <div class="footer_bar">
+      <span class="footer_text">© 2025 Singlish Unicode Converter. Developed by ODS-Daham sathmin</span>
+    </div>
+  </footer>
+
 
   <!-- Include your main JavaScript file for transliteration logic -->
   <script src="{{ url_for('static', filename='main.js') }}"></script>

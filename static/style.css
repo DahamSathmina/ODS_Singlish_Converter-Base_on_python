@@ -1,7 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
-  scrollbar-width: none;
+/* Style the entire scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Style the scrollbar track */
+::-webkit-scrollbar-track {
+  background: #1F2937;
+}
+
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: #3b4d67;
+  border-radius: 5px;
+}
+
+/* Style the scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2b374a;
+}
 
 }
 
@@ -11,50 +30,64 @@ html{
 body{
     font-family: poppins, sans-serif;
     font-size: small;
-    background-color: #0a0a0a;
+    background-color: #1b242f;
     color:#fff6ff;
     padding: 10px;
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
-
-.main-title{
-    text-align: center;
-    font-size: 52px;
-    font-weight: 500;
-    
-    
-}
 .titles{
     margin-top:15px;
     margin-bottom: 30px;
     text-align: center;
-    
+}
+
+.main-title{
+    text-align: center;
+    font-size: 52px;
+    font-weight: 600;    
 }
 .small-title{
     font-size: 18px; 
-    color: #818181;
-    font-weight: 300;
+    color: #e2e2e2;
+    font-weight: 400;
 }
 .area-container{
-    width:100%;
-    max-width: 500px;
+    width: 100%;
+    max-width: 700px;
     margin: auto;
-    background-color: #000000;
-    border-radius: 5px;
+    padding-bottom: 20px;
+    background-color: #2b384bfb;
+    opacity: 80%;
+    border-radius: 18px;
+}
+#output-container{
+    width:100%;
+    max-width: 700px;
+    margin: auto;
+    background-color: #2b384bfb;
+    opacity: 80%;
+    border-radius: 18px;
+    margin-top: 20px;
 }
 
 #output{
     font-size: 16px;
+    font-family: poppins, sans-serif;
+    font-weight: 300;
     margin-top:10px;
 }
-
-#output-area, #input-area{
+#input-area {
     padding: 15px;
-    padding-top:10px
+    padding-bottom: 0px;
+}
+#output-area {
+    padding: 15px;
+    padding-top:10px;
 }
 .secondary-title{
     font-size: 14px; 
+    font-weight: 500;
     color: #ff0000;
 }
 
@@ -69,12 +102,12 @@ textarea {
     padding: 12px 20px;
     box-sizing: border-box;
     border: 1.5px solid #ffffffe8;
-    border-radius: 5px;
+    border-radius: 10px;
     resize: none;
-    caret-color: #ed0000;
+    caret-color: hsl(0, 0%, 86%);
     font-size:17px;
-    color:#fff;
-    background-color: #212121;
+    color:#ffffff;
+    background-color: rgba(52, 58, 71, 0.907);
     margin-top:10px;
   }
 
@@ -108,7 +141,12 @@ textarea {
 }
 
 a{
-    color:#e6e6e6de;
+    color:#fcfcfce2;
+}
+.scheme{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
 }
 
 .footer{
@@ -117,16 +155,12 @@ a{
     left: 0px;
     bottom: 0px;
     height: 44px;
-    width: 100%;
-    background: #0f0f0f;
+    width: 50%;
+    background: #ffffff;
     text-align: center;
 }
 
-.scheme{
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
-}
+
 table{
     width:100%;
     border: 1px solid #4a4a4a;
