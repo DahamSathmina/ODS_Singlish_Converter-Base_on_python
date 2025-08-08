@@ -26,6 +26,7 @@
 
 html{
     width: 100%;
+    scroll-behavior: smooth;
 }
 header{
     width: 100%;
@@ -241,24 +242,47 @@ td {
   box-shadow: 0 2px 6px rgba(9, 255, 0, 0.350);
   padding: 8px 12px;
 }
-.footer_bar{
-    margin: 0;
-    margin-top: auto;
-    right: 0px;
-    left: 0px;
-    bottom: 0px;
-    height: 5rem;
+
+footer {
+    flex: 1;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    align-content: center;
-    background: #151d25;
-    border-radius: 18px 18px 0px 0px; 
-    border: 0px;
-    border-top: 4px solid #ff0d0de0;
+    z-index: 999; /* stays above content */
+}
+.footer_bar{
+    position: relative; /* allows absolute positioning for logo */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    background: #151d25cd;
+    border-radius: 18px 18px 0 0;
+    backdrop-filter: blur(12px); /* Glass blur effect */
+    -webkit-backdrop-filter: blur(12px); /* For Safari */
+    border-top: 4px solid #ff0d0df7;
+    height: 5rem;
+}
+.footer_logo{
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    left: 0;
 }
 .footertxt{
-    color: #727272;
-    font-weight: 100;
+    color: #b6b6b6f1;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    flex: 1;
     text-align: center;
-    padding: 10px;
-    z-index: 1000;
 }
+.footer_para{
+    color: #f3f3f3;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    margin: 0;
+    padding-right: 10px; /* Adjusted for logo */
+}
+
