@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Singlish Unicode Converter | ODS</title>
+  <link rel="shortcut icon" href="./assets/icons/web/favicon.ico" type="image/x-icon">
   <!-- Link to external CSS in Flask static folder -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
   <script src="{{ url_for('static', filename='script.js') }}"></script>
@@ -19,7 +20,14 @@
 </head>
 
 <body>
-  <!-- Header titles -->
+  <header>
+    <div class="header">
+      <img src="{{ url_for('static', filename='logo.svg') }}" alt="Logo" class="logo" />
+      <h1 class="header-title">Singlish Converter</h1>
+    </div>
+  </header>
+
+  <!---------- Main content area ------------->
   <div class="titles">
     <span class="main-title">Singlish to Unicode Converter</span><br />
     <span class="small-title">Type in transliterated Sinhala (Singlish) and get text in Unicode</span>
@@ -50,17 +58,18 @@
   <!-- Output section -->
   <div id="output-container" class="area-container">
     <div id="output-area">
+
       <!-- Label -->
       <span class="secondary-title">Unicode Result</span><br />
+
       <!-- Div to display converted Sinhala text -->
       <div id="output" tabindex="0">Result will appear here...</div>
       <br />
+
       <!-- Button to copy output text to clipboard -->
       <button id="copy-button" onclick="copyText()">COPY TEXT</button>
     </div>
   </div>
-
-  <br /><br />
 
   <!-- Sidebar Toggle Button -->
   <button id="toggleBtn" class="toggle-button">☰ Character Map</button>
@@ -213,10 +222,14 @@
   </div>
   </div>
 
+  <br></br>
+
   <!------------------footer------------------->
   <footer>
     <div class="footer_bar">
-      <span class="footer_text">© 2025 Singlish Unicode Converter. Developed by ODS-Daham sathmin</span>
+      <div class="footertxt">
+        <h4>© 2025 Singlish Unicode Converter. Developed by ODS-Daham sathmin</h4>
+      </div>
     </div>
   </footer>
 
