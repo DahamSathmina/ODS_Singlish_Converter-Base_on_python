@@ -61,13 +61,22 @@
   <!-- Output section -->
   <div id="output-container" class="area-container">
     <div id="output-area">
-
-      <!-- Label -->
+     <!-- Label -->
       <span class="secondary-title">Unicode Result</span><br />
-
-      <!-- Div to display converted Sinhala text -->
-      <div id="output" tabindex="0">Result will appear here...</div>
-      <br />
+       <!-- Textarea for user output -->
+      <textarea 
+        placeholder="Result will appear here..."
+        id="output"
+        onkeyup="showOutput();"
+        readonly
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="singlish"
+      ></textarea>
+         
+     <br><br />
 
       <!-- Button to copy output text to clipboard -->
       <button id="copy-button" onclick="copyText()">COPY TEXT</button>

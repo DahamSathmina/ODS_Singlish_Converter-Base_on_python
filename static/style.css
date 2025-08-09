@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wdth,wght@62.5..100,100..900&display=swap');
 
 :root {
     /* Dark theme colors */
   --bg-color: #1b242f;
   --text-color: #dbdbdb;
   --main_title-color: #ffffff;
-  --area-bg-color: rgba(43, 56, 75, 0.95);
+  --area-bg-color: rgba(43, 56, 75, 0.985);
   --secondary-color: #ff3232;
   --button-bg-color: #00d504;
   --button-hover-bg-color: #00ff008e;
@@ -30,7 +31,7 @@
 
 /* Style the scrollbar track */
 ::-webkit-scrollbar-track {
-  background: #1F2937;
+  background: #1F2937b2;
 }
 
 /* Style the scrollbar thumb */
@@ -112,7 +113,6 @@ body{
     margin: auto;
     padding-bottom: 20px;
     background-color: var(--area-bg-color);
-    opacity: 80%;
     border-radius: 13px;
 }
 #output-container{
@@ -120,15 +120,14 @@ body{
     max-width: 700px;
     margin: auto;
     background-color: var(--area-bg-color);
-    opacity: 80%;
     border-radius: 13px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #output{
-    font-size: 16px;
-    font-family: poppins, sans-serif;
-    font-weight: 300;
+    font-size: 15px;
+    font-family: Noto Sans Sinhala, sans-serif;
+    font-weight: 400;
     margin-top:10px;
 }
 #input-area {
@@ -146,7 +145,7 @@ body{
 }
 
 .glow{
-    box-shadow: 0px 0px 2px 0px #ff1919;
+    box-shadow: 0px 0px 2px 0px #ff1919f1;
 }
 
 textarea {
@@ -155,13 +154,13 @@ textarea {
     height: 250px;
     padding: 12px 20px;
     box-sizing: border-box;
-    border: 1.5px solid #ffffffe8;
+    border: 1.8px solid #fffffffb;
     border-radius: 13px;
     resize: none;
-    caret-color: hsl(0, 0%, 93%);
+    caret-color: hsl(0, 0%, 92%);
     font-size:17px;
     color:#ffffff;
-    background-color: rgba(52, 58, 71, 0.907);
+    background-color: rgba(52, 58, 71, 0.83);
     margin-top:10px;
   }
 
@@ -198,16 +197,16 @@ textarea {
 }
 
 a{
-    color:#fcfcfce2;
+    color:#fcfcfce7;
 }
 .theme_toggle {
     background: none;
     border: none;
     cursor: pointer;
     position: absolute; /* or fixed, depending on your layout */
-    bottom: 10px;          /* adjust vertical position */
-    left: 20px;         /* align to the left corner */
-    z-index: 1000;      /* to keep it on top */
+    bottom: 10px; /* adjust vertical position */
+    left: 20px; /* align to the left corner */
+    z-index: 1000; /* to keep it on top */
     position: fixed; /* keeps it in view */
 }
 .theme_toggle img{
@@ -231,7 +230,7 @@ table{
 
 /* Borders */
 td {
-    border: 1px solid #4a4a4a;
+    border: 1.5px solid #e3e3e3;
     text-align: center;
     padding: 5px;
 }
@@ -326,5 +325,6 @@ footer {
     margin: 0;
     padding-right: 5px; /* Adjusted for logo */
 }
+
 
 
