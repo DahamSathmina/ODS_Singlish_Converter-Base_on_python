@@ -6,7 +6,7 @@
   <link rel="shortcut icon" href="./assets/icons/web/favicon.ico" type="image/x-icon">
 
   <!-- Link to CSS, js and logo in Flask static folder -->
-  <link rel="icon" href="{{ url_for('static', filename='main_logo.png') }}" type="image/x-icon" />
+  <link rel="icon" href="{{ url_for('static', filename='assets/icons/main_logo.png') }}" type="image/x-icon" />
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 
@@ -26,7 +26,7 @@
   <header>
     <h1 class="header-title">ODS Singlish Converter</h1>
     <div class="header">
-      <img src="{{ url_for('static', filename='main_logo.svg') }}" alt="Logo" class="logo" />
+      <img src="{{ url_for('static', filename='assets/icons/main_logo.svg') }}" alt="Logo" class="logo" />
     </div>
   </header>
 
@@ -73,6 +73,10 @@
       <button id="copy-button" onclick="copyText()">COPY TEXT</button>
     </div>
   </div>
+<!-- Toggle light/dark theame -->
+<button id="theme-toggle" class="theme_toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Dark/Light Mode">
+  <img src="{{ url_for('static', filename='assets/Theme_Toggle_Dark.svg') }}" alt="Toggle Dark/Light Mode" width="38px" height="38px" />
+</button>
 
   <!-- Sidebar Toggle Button -->
   <button id="toggleBtn" class="toggle-button">☰ Character Map</button>
@@ -236,7 +240,7 @@
       <p class="footer_para">Experience the power of<br>
         real-time Singlish to <br>
         Sinhala Unicode conversion.</p>
-      <img src="{{ url_for('static', filename='main_logo.svg') }}" alt="Footer_Logo" class="footer-logo" />
+      <img src="{{ url_for('static', filename='assets/icons/main_logo.svg') }}" alt="Footer_Logo" class="footer-logo" />
     </div> 
   </footer>
 
@@ -273,5 +277,6 @@
 </body>
 
 </html>
+
 
 

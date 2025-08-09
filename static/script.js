@@ -35,9 +35,45 @@ document.addEventListener("DOMContentLoaded", function () {
         if (t < 1) return (c / 2) * t * t * t + b;
         t -= 2;
         return (c / 2) * (t * t * t + 2) + b;
-      }
+      }s
 
       requestAnimationFrame(animation);
     });
   });
 });
+/* Toggle Light/Dark Theame */
+document.addEventListener("DOMContentLoaded", () => {
+  const themeToggle = document.getElementById("theme-toggle");
+  const root = document.documentElement;
+
+  // Define icons for dark and light modes
+  const darkIcon = "/static/assets/Theme_Toggle_Dark.svg";  // replace with your dark mode icon path
+  const lightIcon = "/static/assets/Theme_Toggle_Light.svg"; // replace with your light mode icon path
+
+  // Initialize theme and icon from localStorage or default dark
+  let savedTheme = localStorage.getItem("theme") || "light";
+  root.setAttribute("data-theme", savedTheme);
+  updateIcon(savedTheme);
+
+  themeToggle.addEventListener("click", () => {
+    let currentTheme = root.getAttribute("data-theme");
+    let newTheme = currentTheme === "light" ? "dark" : "light";
+    root.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    updateIcon(newTheme);
+  });
+
+  function updateIcon(theme) {
+    const img = themeToggle.querySelector("img");
+    if (theme === "light") {
+      img.src = lightIcon;
+      img.alt = "Switch to Dark Mode";
+    } else {
+      img.src = darkIcon;
+      img.alt = "Switch to Light Mode";
+    }
+  }
+});
+
+
+
