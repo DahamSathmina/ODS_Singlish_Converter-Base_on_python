@@ -7,7 +7,8 @@
   --text-color: #dbdbdb;
   --main_title-color: #ffffff;
   --area-bg-color: rgba(43, 56, 75, 0.985);
-  --secondary-color: #ff3232;
+  --secondary-color: #dc2626;
+  --red_text_color: #dc2626;
   --button-bg-color: #00d504;
   --button-hover-bg-color: #00ff008e;
   transition: background-color 0.5s ease, color 0.5s ease;
@@ -15,10 +16,11 @@
 
 [data-theme="light"] {
   --bg-color: #f6f6f6;
-  --text-color: #3f3f3f;
-  --main_title-color: #1a1a1a;
+  --text-color: #dbdbdb;
+  --main_title-color: #ffffff;
   --area-bg-color: rgb(35, 46, 61);
-  --secondary-color: #ff3232;
+  --secondary-color: #dc2626;
+  --red_text_color: #ffffff;
   --button-bg-color: #00d504;
   --button-hover-bg-color: #00ff008e;
 }
@@ -88,6 +90,11 @@ body{
     margin-top: 80px; /* Adjust for fixed header */
     display: flex;
     flex-direction: column;
+    background-image: url(./assets/BG_blur_layer.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 .titles{
     margin-top:15px;
@@ -98,8 +105,14 @@ body{
 .main-title{
     text-align: center;
     font-size: 52px;
+    font-weight: 600;
     color: var(--main_title-color);
     font-weight: 600;    
+}
+.red_text{
+    color: var(--red_text_color);
+    font-size: 52px;
+    font-weight: 600;
 }
 .small-title{
     text-align: center;
@@ -145,7 +158,7 @@ body{
 }
 
 .glow{
-    box-shadow: 0px 0px 2px 0px #ff1919f1;
+    box-shadow: 0px 0px 2px 0px #dc2626;
 }
 
 textarea {
@@ -246,7 +259,7 @@ td {
   backdrop-filter: blur(10px);
   color: white;
   padding: 20px;
-  box-shadow: 0px 0 10px rgba(255, 11, 11, 0.936);
+  box-shadow: 0px 0 10px #dc2626;
   transition: right 0.5s ease;
   overflow-y: auto;
   overflow-x: hidden;
@@ -300,7 +313,7 @@ footer {
     border-radius: 18px 18px 0 0;
     backdrop-filter: blur(12px); /* Glass blur effect */
     -webkit-backdrop-filter: blur(12px); /* For Safari */
-    border-top: 4px solid #ff0d0df7;
+    border-top: 4px solid #dc2626;
     height: 5rem;
 }
 .footer_logo{
