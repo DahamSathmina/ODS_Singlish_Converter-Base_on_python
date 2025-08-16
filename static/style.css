@@ -79,6 +79,10 @@ header{
     font-weight: 500;
     margin: 0;
 }
+.ods_red{
+    color: var(--secondary-color);
+    font-weight: 600;
+}
 body{
     font-family: poppins, sans-serif;
     font-size: small;
