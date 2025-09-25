@@ -243,15 +243,44 @@
 </main>
   <!------------------footer------------------->
   <footer>
-      <p class="footer_main_para">Experience the power of<br>
-        real-time Singlish to <br>
-        Sinhala Unicode conversion.</p>
-      <img src="{{ url_for('static', filename='assets/icons/main_logo.svg') }}" alt="Footer_Logo" class="footer-logo" />
-<hr>
-      <div class="footer_bottom">
-         <p class="bottom_para">© 2025 Singlish Unicode Converter. Developed by ODS-Daham sathmin</p>
+  <div class="footer-container">
+    <!-- Left: Logo + description -->
+    <div class="footer-section about">
+      <img src="{{ url_for('static', filename='assets/icons/main_logo.svg') }}" alt="Footer Logo" class="footer-logo" />
+      <p class="footer-description">
+        Experience real-time Singlish to <br> Sinhala Unicode conversion.
+        Simple. Fast. Accurate.
+      </p>
+    </div>
+
+    <!-- Middle: Quick Links -->
+    <div class="footer-section links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#input-container">Converter</a></li>
+        <li><a href="#sidebar">Character Map</a></li>
+      </ul>
+    </div>
+
+    <!-- Right: Social Media -->
+    <div class="footer-section social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+         <a href="#" target="_blank"><img src="{{ url_for('static', filename='assets/linkedin.svg') }}" alt="Linkedin"></a>
+         <a href="#" target="_blank"><img src="{{ url_for('static', filename='assets/github.svg') }}" alt="GitHub"></a>
+         <a href="#" target="_blank"><img src="{{ url_for('static', filename='assets/facebook.svg') }}" alt="Facebook"></a>
       </div>
-  </footer>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Bottom credit -->
+  <div class="footer-bottom">
+    <p>© 2025 Singlish Unicode Converter | Developed by <span>ODSD - Daham Sathmin</span></p>
+  </div>
+</footer>
 
 
   <!-- Include your main JavaScript file for transliteration logic -->
