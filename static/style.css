@@ -3,7 +3,7 @@
 
 :root {
     /* Dark theme colors */
-  --header-color: #1f2937;  
+  --header-color: #1f2937a2;  
   --bg-color: #1b242f;
   --text-color: #dbdbdb;
   --main_title-color: #ffffff;
@@ -11,8 +11,7 @@
   --footer-bg-color: #111827;
   --secondary-color: #dc2626;
   --red_text_color: #dc2626;
-  --button-bg-color: #00d504;
-  --button-hover-bg-color: #00ff008e;
+  --button-bg-color: #ff1010d2;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -25,8 +24,7 @@
   --footer-bg-color: #111827;
   --secondary-color: #dc2626;
   --red_text_color: #ffffff;
-  --button-bg-color: #00d504;
-  --button-hover-bg-color: #00ff008e;
+  --button-bg-color: #ff1010d2;
 }
 
 * {
@@ -65,10 +63,10 @@ html {
 }
 header{
     width: 100%;
-    height: 60px;
+    height: 70px;
     background-color: var(--header-color);
-  /*  backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);*/
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     display: flex;
     position: fixed;
     margin: 0;
@@ -102,7 +100,7 @@ body{
     padding: 0;
     padding-bottom: 0px;
     margin: 0;
-    margin-top: 60px;
+    margin-top: 70px;
     flex: 1;
     flex-direction: column;
     overflow-x: hidden;
@@ -251,36 +249,69 @@ a{
     margin: auto;
 }
 
-table{
-    width:100%;
-    border: 1px solid #4a4a4a;
-    border-collapse: collapse;
+/* Sidebar Table Styling */
+table {
+    width: 100%;
+    border-collapse: separate; /* Use separate for rounded corners */
+    border-spacing: 0;
+    border: 1px solid var(--header-color); /* Darker border for table */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Clips children for rounded corners */
+    font-family: poppins, sans-serif;
+    font-family: Noto+Sans+Sinhala, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #1e1e1e; /* Dark sidebar background */
+    color: #f0f0f0; /* Light text color */
+}
+/* Table headers */
+.sidebar-txt-header {
+    color: var(--secondary-color);
 }
 
-/* Borders */
+/* Table cells */
 td {
-    border: 1.5px solid #e3e3e3;
+    padding: 8px 10px;
+    border-bottom: 1px solid #333;
     text-align: center;
-    padding: 5px;
+    transition: background 0.3s, color 0.3s;
 }
+
+/* Last row remove bottom border */
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Hover effect */
+td:hover {
+    background-color: #3a3a3a;
+    cursor: pointer;
+}
+
+/* Zebra rows for readability */
+tr:nth-child(even) td {
+    background-color: #2a2a2a;
+}
+
 
 /* Sidebar Styles */
 .sidebar {
   position: fixed;
-  top: 0px;
-  right: -400px;
+  top: 70px;          /* below header */
+  bottom: 0;          /* stretches to bottom */
+  right: -400px;      /* hidden initially */
   width: 300px;
-  height: 100vh;
-  background-color: var(--area-bg-color);
+  background-color: #111827bf;
   backdrop-filter: blur(10px);
   color: white;
   padding: 20px;
-  box-shadow: 0px 0 10px #dc2626;
+  border-left: 2px solid var(--secondary-color);
   transition: right 0.5s ease;
-  overflow-y: auto;
+  overflow-y: auto;   /* scrollable */
   overflow-x: hidden;
   z-index: 100;
 }
+
 
 .sidebar.active {
   right: -8px;
@@ -297,19 +328,15 @@ td {
   padding: 7px 11px;
   border: none;
   font-size: 13px;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(9, 255, 0, 0.375);
   transition: font-size 0.3s ease-in-out;
-  transition: background-color 0.3s ease-in-out, border-left 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, border-left 0.3s ease-in-out;
 }
 
 .toggle-button:hover {
-  font-size: 14px;
-  background-color: var(--button-hover-bg-color);
-  border-left: 3.5px solid #00ff00;
-  box-shadow: 0 2px 6px rgba(9, 255, 0, 0.350);
-  padding: 8px 12px;
+  background-color: #ff10101f;
+  border-left: 3px solid var(--secondary-color);
 }
 
 footer {
@@ -339,6 +366,7 @@ footer {
   width: 50px;
   height: 50px;
   margin-bottom: 10px;
+  
 }
 
 .footer-description {
