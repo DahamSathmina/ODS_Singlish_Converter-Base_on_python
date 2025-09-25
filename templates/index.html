@@ -34,6 +34,7 @@
   </header>
 
   <!---------- Main content area ------------->
+<main>
   <div class="titles">
     <span class="main-title">Singlish to <span class="red_text">Unicode</span> Converter</span><br />
     <span class="small-title">Type in transliterated Sinhala (Singlish) and get text in Unicode</span>
@@ -79,7 +80,6 @@
         aria-label="singlish"
       ></textarea>
          
-     <br><br />
 
       <!-- Button to copy output text to clipboard -->
       <button id="copy-button" onclick="copyText()">COPY TEXT</button>
@@ -240,20 +240,17 @@
     </table>
   </div>
   </div>
-
-  <br></br>
-
+</main>
   <!------------------footer------------------->
   <footer>
-    <div class="footer_bar">
-      <div class="footertxt">
-        <h4>© 2025 Singlish Unicode Converter. Developed by ODS-Daham sathmin</h4>
-      </div>
-      <p class="footer_para">Experience the power of<br>
+      <p class="footer_main_para">Experience the power of<br>
         real-time Singlish to <br>
         Sinhala Unicode conversion.</p>
       <img src="{{ url_for('static', filename='assets/icons/main_logo.svg') }}" alt="Footer_Logo" class="footer-logo" />
-    </div> 
+<hr>
+      <div class="footer_bottom">
+         <p class="bottom_para">© 2025 Singlish Unicode Converter. Developed by ODS-Daham sathmin</p>
+      </div>
   </footer>
 
 

@@ -7,6 +7,7 @@
   --text-color: #dbdbdb;
   --main_title-color: #ffffff;
   --area-bg-color: rgba(43, 56, 75, 0.985);
+  --footer-bg-color: #111827;
   --secondary-color: #dc2626;
   --red_text_color: #dc2626;
   --button-bg-color: #00d504;
@@ -19,6 +20,7 @@
   --text-color: #dbdbdb;
   --main_title-color: #ffffff;
   --area-bg-color: rgb(35, 46, 61);
+  --footer-bg-color: #111827;
   --secondary-color: #dc2626;
   --red_text_color: #ffffff;
   --button-bg-color: #00d504;
@@ -28,7 +30,7 @@
 * {
 /* Style the entire scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 /* Style the scrollbar track */
@@ -49,9 +51,13 @@
 
 }
 
-html{
-    width: 100%;
-    scroll-behavior: smooth;
+html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        scroll-behavior: smooth;
+        font-family: poppins, sans-serif;
 }
 header{
     width: 100%;
@@ -92,7 +98,7 @@ body{
     padding-bottom: 0px;
     margin: 0;
     margin-top: 80px; /* Adjust for fixed header */
-    display: flex;
+    flex: 1;
     flex-direction: column;
     background-image: url(./assets/BG_blur_layer.png);
     background-repeat: no-repeat;
@@ -301,47 +307,42 @@ td {
 }
 
 footer {
-    flex: 1;
+    width: 100%;
+    background-color: #1f2937;
+   /* backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); */
+    margin: 0;
+    margin-top: 30px;
+    padding: 20px 0px 10px 0px;
+    text-align: center;
+    color: var(--footer-bg-color);
+    position:static;
     bottom: 0;
     left: 0;
-    width: 100%;
-    z-index: 999; /* stays above content */
 }
-.footer_bar{
-    position: relative; /* allows absolute positioning for logo */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 15px;
-    background: #151d25cd;
-    border-radius: 18px 18px 0 0;
-    backdrop-filter: blur(12px); /* Glass blur effect */
-    -webkit-backdrop-filter: blur(12px); /* For Safari */
-    border-top: 4px solid #dc2626;
-    height: 5rem;
+.footer-logo {
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    float: left;
 }
-.footer_logo{
-    width: 28px;
-    height: 28px;
-    position: absolute;
-    right: 10px;
-}
-.footertxt{
-    color: #b6b6b6f1;
-    font-family: poppins, sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    flex: 1;
-    text-align: center;
-}
-.footer_para{
-    color: #eaeaea;
-    font-family: poppins, sans-serif;
-    font-weight: 350;
-    font-size: 11px;
+.footer_main_para{
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text-color);
     margin: 0;
-    padding-right: 5px; /* Adjusted for logo */
+    line-height: 1.4;
 }
-
-
-
+ hr {
+    border: none;
+    border-top: 1px solid #ffffff33;
+    margin: 10px auto;
+    width: 95%;
+ }      
+.footer_bottom {
+    height: 2rem;
+    font-size: 13px;
+    font-weight: 300;
+    text-align: center;
+    color: #ffffffa1;
+}

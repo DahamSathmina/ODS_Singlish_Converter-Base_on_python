@@ -57,3 +57,8 @@ def convert_to_sinhala(text: str) -> str:
         text = re.sub(rf'([ක-ෆ]){pattern}', rf'\1{modifier}', text)
 
     return text
+
+
+
+
+
