@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 
+
   <!-- Google Analytics gtag.js snippet -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDWXDMBJN7"></script>
   <script>
@@ -48,6 +49,8 @@
       <!-- Button to clear textarea -->
       <button id="clear-button" onclick="clearText()">CLEAR</button>
       <br />
+      <!-- Microphone button -->
+      <button id="voice-btn" type="button" title="Start Voice Typing">🎤</button>
       <!-- Textarea for user input -->
       <textarea
         placeholder="Type Your text here..."
@@ -274,7 +277,7 @@
 </footer>
 
 
-  <!-- Include your main JavaScript file for transliteration logic -->
+  <!-- Include main JavaScript file for transliteration logic -->
   <script src="{{ url_for('static', filename='main.js') }}"></script>
 
   <!-- Register service worker for offline support -->
