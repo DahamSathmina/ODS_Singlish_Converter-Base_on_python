@@ -133,6 +133,22 @@ body{
     color: var(--text-color);
     font-weight: 400;
 }
+/* Row layout for input/output */
+.io-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* space between input/output */
+  max-width: 1400px; /* adjust as needed */
+  margin: 20px auto; /* center on page */
+  flex-wrap: wrap; /* wrap on smaller screens */
+}
+
+/* Each section takes half width */
+.io-row .area-container {
+  flex: 1 1 48%; /* grow, shrink, base width */
+  min-width: 300px; /* avoid too small on mobile */
+}
+
 .area-container{
     width: 100%;
     max-width: 700px;
@@ -191,14 +207,19 @@ textarea {
   }
 
 #copy-button{
-    width:100%;
+    width:30%;
     height: 30px;
+    margin: 2px;
     background-color: #ffffff20;
     border:0px;
     font-weight: 580;
     color: #fff;
     border-radius: 20px;
 }
+.coppied{
+    background-color: #ffffff43!important;
+}
+
 #clear-button{
     width:auto;
     height: 25px;
@@ -209,17 +230,14 @@ textarea {
     color: #fff;
     padding: 5px;
     float:right;
-    border-radius: 7px;
+    right: 20px;
+    border-radius: 20px;
     transition: border-left 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 #clear-button:hover{
     background-color: #ffffff43;
     border-left: 2.5px solid #ffc800;
     
-}
-
-.coppied{
-    background-color: #ffffff43!important;
 }
 
 a{
