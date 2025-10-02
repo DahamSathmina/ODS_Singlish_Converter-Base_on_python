@@ -17,7 +17,7 @@
 
 [data-theme="light"] {
   --header-color: #1f2937;  
-  --bg-color: #f6f6f6;
+  --bg-color: #1b242f;
   --text-color: #dbdbdb;
   --main_title-color: #ffffff;
   --area-bg-color: rgb(35, 46, 61);
@@ -55,7 +55,6 @@ html {
         height: 100%;
         margin: 0;
         padding: 0;
-        display: flex;
         flex-direction: column;
         overflow-x: hidden;
         scroll-behavior: smooth;
@@ -104,11 +103,11 @@ body{
     flex: 1;
     flex-direction: column;
     overflow-x: hidden;
-    background-image: url(./assets/BG_blur_layer.png);
+    background-image: url(./assetS/Hero-BannerT.PNG);
     background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
+    background-attachment:scroll;
+    background-position: center top;
+    background-size:contain;
 }
 .titles{
     margin-top:15px;
