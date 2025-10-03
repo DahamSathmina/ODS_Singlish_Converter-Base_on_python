@@ -103,7 +103,7 @@ body{
     flex: 1;
     flex-direction: column;
     overflow-x: hidden;
-    background-image: url(./assetS/Hero-BannerT.png);
+    background-image: url(./assets/Hero-BannerT.PNG);
     background-repeat: no-repeat;
     background-attachment:scroll;
     background-position: center top;
