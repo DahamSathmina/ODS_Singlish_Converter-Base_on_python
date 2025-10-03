@@ -368,12 +368,18 @@ tr:nth-child(even) td {
   background-color: #ff10101f;
   border-left: 3px solid var(--secondary-color);
 }
+
+.main-content {
+  background-color: var(--footer-bg-color);
+  padding-bottom: 40px;
+  margin-bottom: 20px;
+}
 /* Feature Section */
 .features-title {
     text-align: center;
     padding-bottom: 8px;
-    font-size: 28px;
-    font-weight: 600;
+    font-size: 30px;
+    font-weight: 700;
     color: var(--main_title-color);
     margin-top: 40px;
     margin-bottom: 30px;
@@ -388,7 +394,7 @@ tr:nth-child(even) td {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 cards in a row */
     gap: 30px; /* space between cards */
-    max-width: 1400px;
+    max-width: 1500px;
     margin: 20px auto;
 }
 
@@ -397,6 +403,7 @@ tr:nth-child(even) td {
     padding: 20px;
     text-align: center;
     border-radius: 13px;
+    box-shadow: 0 0px 5px rgba(255, 0, 0, 0.092);
     transition: box-shadow 0.3s ease;
 }
 
