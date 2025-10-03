@@ -375,9 +375,9 @@ tr:nth-child(even) td {
     font-weight: 600;
     color: var(--main_title-color);
     margin-top: 40px;
-    margin-bottom: 20px;
-    border-bottom:3px solid var(--text-color);
-    border-bottom-style: dashed;
+    margin-bottom: 30px;
+    border-bottom:3px solid var(--secondary-color);
+    border-bottom-style: solid;
 }
 .card-container {
     display: grid;
@@ -392,12 +392,11 @@ tr:nth-child(even) td {
     padding: 20px;
     text-align: center;
     border-radius: 13px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease;
 }
 
 .feature-card:hover {
-    transform: scale(1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.166);
+    box-shadow: 0 0px 5px rgba(255, 0, 0, 0.377);
     border-top: 4px solid var(--secondary-color);
 }
 
@@ -418,7 +417,7 @@ tr:nth-child(even) td {
     margin-top: 10px;
 }
 
-/* Responsive Design */
+/* Responsive Design for Fuature Cards */
 @media (max-width: 1024px) {
     .card-container {
         grid-template-columns: repeat(2, 1fr); /* 2 cards per row on tablet */
@@ -434,7 +433,7 @@ tr:nth-child(even) td {
 footer {
   background-color: var(--footer-bg-color);
   padding: 30px 20px 15px 0px;
-  margin-top: 40px;
+  margin-top: 80px;
   max-width: 100%;
   overflow-x: hidden;
   color: var(--text-color);
