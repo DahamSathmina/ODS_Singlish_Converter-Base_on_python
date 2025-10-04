@@ -5,6 +5,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    return render_template('preloader.html')
+
+@app.route('/home')
+def home():
     return render_template('index.html')
 
 @app.route('/convert', methods=['POST'])

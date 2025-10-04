@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Daham Sathmin">
+    <title>Loading...</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Preloader Container */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a0000 0%, #3d0000 50%, #5a0000 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        /* Bouncing Dots */
+        .dots-container {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            background-color: #ff3333;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out;
+            box-shadow: 0 0 15px rgba(255, 51, 51, 0.5);
+        }
+
+        .dot:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        .dot:nth-child(3) {
+            animation-delay: 0s;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            40% {
+                transform: translateY(-25px) scale(1.1);
+            }
+        }
+
+        /* Percentage Counter */
+        .percentage {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ff3333;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 51, 51, 0.6);
+            letter-spacing: 2px;
+        }
+
+        /* Loading Text */
+        .loading-text {
+            font-size: 18px;
+            color: #ffcccc;
+            letter-spacing: 1px;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .percentage {
+                font-size: 36px;
+            }
+
+            .loading-text {
+                font-size: 16px;
+                padding: 0 20px;
+            }
+
+            .dot {
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .percentage {
+                font-size: 32px;
+            }
+
+            .loading-text {
+                font-size: 14px;
+            }
+
+            .dot {
+                width: 10px;
+                height: 10px;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="dots-container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="percentage" id="percentage">0%</div>
+        <div class="loading-text">Loading Singlish Converter...</div>
+    </div>
+
+    <script>
+        let progress = 0;
+        const percentageElement = document.getElementById('percentage');
+
+        // Simulate loading progress
+        const interval = setInterval(() => {
+            progress += Math.random() * 8;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(interval);
+                redirectToMainSite();
+            }
+            percentageElement.textContent = Math.floor(progress) + '%';
+        }, 200);
+
+        // Function to redirect to main website
+        function redirectToMainSite() {
+            setTimeout(() => {
+                // Redirect to Flask home route
+                window.location.href = '/home';
+            }, 500);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
