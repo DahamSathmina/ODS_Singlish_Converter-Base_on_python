@@ -444,11 +444,17 @@ tr:nth-child(even) td {
     margin-top: 10px;
 }
 /* comming soon wave text */
+.wave-text {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-size: 15px;
+  font-family: monospace;
+}
 .wave-text span {
-    display:inline-flex;
+    display:inline-block;
     justify-content: center; /* center horizontally */
     align-items: center; /* vertical center */
-    text-align: center;
     font-size: 15px;
     font-family: monospace;
     color: #ffffff;
