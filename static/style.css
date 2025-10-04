@@ -305,6 +305,7 @@ table {
 }
 .sidebar-hr {
   width: 98%;
+  color: var(--text-color)
 }
 
 /* Table cells */
@@ -403,7 +404,7 @@ tr:nth-child(even) td {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 cards in a row */
     gap: 30px; /* space between cards */
-    max-width: 1500px;
+    max-width: 1450px;
     margin: 20px auto;
 }
 
@@ -416,23 +417,23 @@ tr:nth-child(even) td {
 }
 
 .feature-card:hover {
-    border-top: 4px solid var(--secondary-color);
+    border-left: 4px solid var(--secondary-color);
     box-shadow: 0 2px 2px #090c0fc5;
 }
 
 .feature-icon {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     margin-bottom: 10px;
 }
 .card-title {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 580;
     color: var(--main_title-color);
 }
 
 .feature-description {
-    font-size: 15px;
+    font-size: 14px;
     color: var(--text-color);
     margin-top: 10px;
 }
@@ -453,7 +454,7 @@ tr:nth-child(even) td {
 footer {
   background-color: var(--footer-bg-color);
   padding: 30px 20px 15px 0px;
-  margin-top: none;
+  margin-top: 5px;
   padding-top: 35px;
   max-width: 100%;
   overflow-x: hidden;
