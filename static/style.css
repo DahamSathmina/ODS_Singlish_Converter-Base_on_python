@@ -206,7 +206,7 @@ textarea {
     border-radius: 13px;
     resize: none;
     caret-color: hsl(0, 0%, 92%);
-    font-size:17px;
+    font-size:15px;
     color:#ffffff;
     background-color: #293648e8;
     margin-top:10px;
@@ -287,16 +287,24 @@ table {
     border: 1px solid var(--header-color); /* Darker border for table */
     border-radius: 8px; /* Rounded corners */
     overflow: hidden; /* Clips children for rounded corners */
+    font-size: 14px;
     font-family: poppins, sans-serif;
     font-family: Noto+Sans+Sinhala, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    background-color: #1e1e1e; /* Dark sidebar background */
-    color: #f0f0f0; /* Light text color */
+    font-weight: 300;
+    background-color: #131313; /* Dark sidebar background */
+    color: #f4f4f4; /* Light text color */
 }
 /* Table headers */
 .sidebar-txt-header {
     color: var(--secondary-color);
+    font-size: medium;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: 600;
+    
+}
+.sidebar-hr {
+  width: 98%;
 }
 
 /* Table cells */
@@ -330,7 +338,7 @@ tr:nth-child(even) td {
   top: 70px;          /* below header */
   bottom: 0;          /* stretches to bottom */
   right: -400px;      /* hidden initially */
-  width: 300px;
+  width: 400px;
   background-color: #111827bf;
   backdrop-filter: blur(10px);
   color: white;
@@ -368,6 +376,7 @@ tr:nth-child(even) td {
   background-color: #ff10101f;
   border-left: 3px solid var(--secondary-color);
 }
+
 /* Feature Section */
 .features {
     background-color: var(--header-color);
