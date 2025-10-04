@@ -122,11 +122,12 @@ body{
     color: var(--main_title-color);
     font-weight: 600;    
 }
-.red_text{
+.red-text{
     color: var(--red_text_color);
     font-size: 52px;
     font-weight: 600;
 }
+
 .small-title{
     text-align: center;
     font-size: 16px; 
@@ -400,6 +401,7 @@ tr:nth-child(even) td {
     text-underline-position: center;
     
 }
+
 .card-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 cards in a row */
@@ -440,6 +442,47 @@ tr:nth-child(even) td {
     font-size: 13px;
     color: var(--text-color);
     margin-top: 10px;
+}
+/* comming soon wave text */
+.wave-text span {
+
+    display: inline-block;
+    padding-left: 5px;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: 300;
+    animation: wave 2s ease-in-out infinite;
+}
+
+.wave-text span:nth-child(1) {
+    animation-delay: 0s;
+}
+.wave-text span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.wave-text span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.wave-text span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+.wave-text span:nth-child(5) {
+    animation-delay: 0.8s;
+}
+.wave-text span:nth-child(6) {
+    animation-delay: 1.0s;
+}
+.wave-text span:nth-child(7) {
+    animation-delay: 1.2s;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 /* Responsive Design for Fuature Cards */
