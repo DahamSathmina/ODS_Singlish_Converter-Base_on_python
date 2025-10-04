@@ -450,6 +450,7 @@ tr:nth-child(even) td {
   align-items: center;
   font-size: 15px;
   font-family: monospace;
+  color: #ffffff;
 }
 .wave-text span {
     display:inline-block;
