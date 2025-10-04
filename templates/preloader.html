@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Daham Sathmin">
-    <title>Loading...</title>
+    <title>ACCESS GRANTED</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -13,18 +14,22 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Share Tech Mono', monospace;
             overflow: hidden;
+            background: #000;
+            color: #0f0;
         }
 
-        /* Preloader Container */
+        /* Cyber Background */
         #preloader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #1a0000 0%, #3d0000 50%, #5a0000 100%);
+            background: 
+                radial-gradient(ellipse at center, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, #000 0%, #0a0000 50%, #000 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -32,113 +37,522 @@
             z-index: 9999;
         }
 
-        /* Bouncing Dots */
-        .dots-container {
+        /* Matrix Rain Effect */
+        #matrix-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+        }
+
+        /* Glitch Lines */
+        .glitch-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff0000, transparent);
+            animation: glitchScan 4s linear infinite;
+            opacity: 0.3;
+        }
+
+        .glitch-line:nth-child(2) {
+            animation-delay: 2s;
+            background: linear-gradient(90deg, transparent, #00ff00, transparent);
+        }
+
+        @keyframes glitchScan {
+            0%, 100% { transform: translateY(0); opacity: 0; }
+            50% { opacity: 0.3; }
+            100% { transform: translateY(100vh); }
+        }
+
+        /* Main Terminal */
+        .hacker-terminal {
+            position: relative;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.95);
+            border: 2px solid #ff0000;
+            border-radius: 0;
+            padding: 0;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 
+                0 0 50px rgba(255, 0, 0, 0.5),
+                inset 0 0 30px rgba(255, 0, 0, 0.1),
+                0 0 100px rgba(255, 0, 0, 0.3);
+            animation: borderPulse 2s infinite;
+        }
+
+        @keyframes borderPulse {
+            0%, 100% { 
+                border-color: #ff0000;
+                box-shadow: 
+                    0 0 50px rgba(255, 0, 0, 0.5),
+                    inset 0 0 30px rgba(255, 0, 0, 0.1),
+                    0 0 100px rgba(255, 0, 0, 0.3);
+            }
+            50% { 
+                border-color: #ff3333;
+                box-shadow: 
+                    0 0 70px rgba(255, 0, 0, 0.7),
+                    inset 0 0 40px rgba(255, 0, 0, 0.15),
+                    0 0 120px rgba(255, 0, 0, 0.5);
+            }
+        }
+
+        /* Terminal Header */
+        .terminal-header {
+            background: #ff0000;
+            padding: 12px 20px;
             display: flex;
-            gap: 12px;
-            margin-bottom: 25px;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #000;
         }
 
-        .dot {
-            width: 14px;
-            height: 14px;
-            background-color: #ff3333;
-            border-radius: 50%;
-            animation: bounce 1.4s infinite ease-in-out;
-            box-shadow: 0 0 15px rgba(255, 51, 51, 0.5);
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .dot:nth-child(1) {
-            animation-delay: -0.32s;
+        .skull {
+            color: #000;
+            font-size: 20px;
+            animation: skullGlow 2s infinite;
         }
 
-        .dot:nth-child(2) {
-            animation-delay: -0.16s;
+        @keyframes skullGlow {
+            0%, 100% { text-shadow: 0 0 5px #000; }
+            50% { text-shadow: 0 0 15px #fff; }
         }
 
-        .dot:nth-child(3) {
-            animation-delay: 0s;
-        }
-
-        @keyframes bounce {
-            0%, 80%, 100% {
-                transform: translateY(0) scale(1);
-            }
-            40% {
-                transform: translateY(-25px) scale(1.1);
-            }
-        }
-
-        /* Percentage Counter */
-        .percentage {
-            font-size: 48px;
-            font-weight: 700;
-            color: #ff3333;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(255, 51, 51, 0.6);
+        .header-title {
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
             letter-spacing: 2px;
         }
 
-        /* Loading Text */
-        .loading-text {
-            font-size: 18px;
-            color: #ffcccc;
-            letter-spacing: 1px;
-            text-align: center;
-            opacity: 0.9;
+        .header-right {
+            display: flex;
+            gap: 10px;
         }
 
-        /* Responsive Design */
+        .header-dot {
+            width: 10px;
+            height: 10px;
+            background: #000;
+            border-radius: 50%;
+            animation: dotBlink 1s infinite;
+        }
+
+        .header-dot:nth-child(2) { animation-delay: 0.3s; }
+        .header-dot:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes dotBlink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0.3; }
+        }
+
+        /* Terminal Body */
+        .terminal-body {
+            padding: 30px;
+        }
+
+        /* System Status */
+        .system-status {
+            margin-bottom: 25px;
+        }
+
+        .status-line {
+            color: #ff0000;
+            font-size: 14px;
+            margin: 8px 0;
+            opacity: 0;
+            animation: hackText 0.5s forwards;
+        }
+
+        .status-line:nth-child(1) { animation-delay: 0.1s; }
+        .status-line:nth-child(2) { animation-delay: 0.3s; }
+        .status-line:nth-child(3) { animation-delay: 0.5s; }
+        .status-line:nth-child(4) { animation-delay: 0.7s; }
+
+        @keyframes hackText {
+            0% { 
+                opacity: 0;
+                transform: translateX(-10px);
+                filter: blur(5px);
+            }
+            100% { 
+                opacity: 1;
+                transform: translateX(0);
+                filter: blur(0);
+            }
+        }
+
+        .status-line .success {
+            color: #00ff00;
+        }
+
+        .status-line .warning {
+            color: #ffff00;
+        }
+
+        .status-line .error {
+            color: #ff0000;
+        }
+
+        .status-line .info {
+            color: #00ffff;
+        }
+
+        /* Glitch Text */
+        .glitch {
+            position: relative;
+            display: inline-block;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.8;
+        }
+
+        .glitch::before {
+            animation: glitch1 2s infinite;
+            color: #ff0000;
+            z-index: -1;
+        }
+
+        .glitch::after {
+            animation: glitch2 2s infinite;
+            color: #00ff00;
+            z-index: -2;
+        }
+
+        @keyframes glitch1 {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        @keyframes glitch2 {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(2px, -2px); }
+            40% { transform: translate(2px, 2px); }
+            60% { transform: translate(-2px, -2px); }
+            80% { transform: translate(-2px, 2px); }
+        }
+
+        /* Access Panel */
+        .access-panel {
+            background: rgba(255, 0, 0, 0.05);
+            border: 1px solid #ff0000;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .access-title {
+            color: #ff0000;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px #ff0000;
+        }
+
+        /* Progress Bar */
+        .progress-section {
+            margin: 20px 0;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: #ff0000;
+            font-size: 13px;
+        }
+
+        .percentage {
+            color: #00ff00;
+            font-weight: bold;
+            text-shadow: 0 0 5px #00ff00;
+        }
+
+        .progress-bar-container {
+            height: 20px;
+            background: #000;
+            border: 1px solid #ff0000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #ff0000, #ff3333, #ff0000);
+            background-size: 200% 100%;
+            animation: progressGlow 2s linear infinite;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+            position: relative;
+        }
+
+        @keyframes progressGlow {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            animation: shine 1.5s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(200%); }
+        }
+
+        /* Cyber Grid */
+        .cyber-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .grid-cell {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid #ff0000;
+            padding: 10px;
+            text-align: center;
+            font-size: 11px;
+            color: #ff0000;
+            animation: cellPulse 3s infinite;
+        }
+
+        .grid-cell:nth-child(1) { animation-delay: 0s; }
+        .grid-cell:nth-child(2) { animation-delay: 0.5s; }
+        .grid-cell:nth-child(3) { animation-delay: 1s; }
+
+        @keyframes cellPulse {
+            0%, 100% { 
+                background: rgba(255, 0, 0, 0.1);
+                box-shadow: inset 0 0 5px rgba(255, 0, 0, 0.3);
+            }
+            50% { 
+                background: rgba(255, 0, 0, 0.2);
+                box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+        }
+
+        .grid-value {
+            color: #00ff00;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        /* Loading Animation */
+        .loading-text {
+            text-align: center;
+            color: #ff0000;
+            font-size: 14px;
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+
+        .cursor-blink {
+            display: inline-block;
+            width: 10px;
+            height: 16px;
+            background: #ff0000;
+            margin-left: 5px;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .percentage {
-                font-size: 36px;
+            .hacker-terminal {
+                width: 95%;
             }
 
-            .loading-text {
-                font-size: 16px;
-                padding: 0 20px;
+            .terminal-body {
+                padding: 20px;
             }
 
-            .dot {
-                width: 12px;
-                height: 12px;
+            .header-title {
+                font-size: 12px;
+            }
+
+            .status-line {
+                font-size: 11px;
+            }
+
+            .access-title {
+                font-size: 14px;
+            }
+
+            .cyber-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 480px) {
-            .percentage {
-                font-size: 32px;
+            .terminal-body {
+                padding: 15px;
             }
 
-            .loading-text {
-                font-size: 14px;
+            .status-line {
+                font-size: 10px;
             }
 
-            .dot {
-                width: 10px;
-                height: 10px;
-                gap: 10px;
+            .cyber-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Preloader -->
     <div id="preloader">
-        <div class="dots-container">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
+        <canvas id="matrix-canvas"></canvas>
+        <div class="glitch-line"></div>
+        <div class="glitch-line"></div>
+
+        <div class="hacker-terminal">
+            <!-- Header -->
+            <div class="terminal-header">
+                <div class="header-left">
+                    <div class="skull">☠</div>
+                    <div class="header-title">SINGLISH CONVERTER v2.0</div>
+                </div>
+                <div class="header-right">
+                    <div class="header-dot"></div>
+                    <div class="header-dot"></div>
+                    <div class="header-dot"></div>
+                </div>
+            </div>
+
+            <!-- Body -->
+            <div class="terminal-body">
+                <!-- System Status -->
+                <div class="system-status">
+                    <div class="status-line">
+                        <span class="success">[✓]</span> Establishing secure connection...
+                    </div>
+                    <div class="status-line">
+                        <span class="success">[✓]</span> Loading language modules...
+                    </div>
+                    <div class="status-line">
+                        <span class="warning">[⚡]</span> Initializing Singlish parser...
+                    </div>
+                    <div class="status-line">
+                        <span class="info">[→]</span> Compiling translation engine...
+                    </div>
+                </div>
+
+                <!-- Access Panel -->
+                <div class="access-panel">
+                    <div class="access-title">
+                        <span class="glitch" data-text="ACCESS GRANTED">ACCESS GRANTED</span>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="progress-section">
+                        <div class="progress-info">
+                            <span>LOADING SYSTEM</span>
+                            <span class="percentage" id="percentage">0%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                    </div>
+
+                    <!-- Cyber Grid -->
+                    <div class="cyber-grid">
+                        <div class="grid-cell">
+                            <div>CPU USAGE</div>
+                            <div class="grid-value" id="cpu">0%</div>
+                        </div>
+                        <div class="grid-cell">
+                            <div>MEMORY</div>
+                            <div class="grid-value" id="memory">0MB</div>
+                        </div>
+                        <div class="grid-cell">
+                            <div>STATUS</div>
+                            <div class="grid-value">ACTIVE</div>
+                        </div>
+                    </div>
+
+                    <!-- Loading Text -->
+                    <div class="loading-text">
+                        INITIALIZING<span class="cursor-blink"></span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="percentage" id="percentage">0%</div>
-        <div class="loading-text">Loading Singlish Converter...</div>
     </div>
 
     <script>
+        // Matrix Rain Effect
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = 'අආඇඈඉඊඋඌඑඒඓඔඕකගටඩපබමයරලවෂසහළෆ01';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#f00';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 50);
+
+        // Progress Animation
         let progress = 0;
         const percentageElement = document.getElementById('percentage');
+        const progressBar = document.getElementById('progressBar');
+        const cpuElement = document.getElementById('cpu');
+        const memoryElement = document.getElementById('memory');
 
-        // Simulate loading progress
         const interval = setInterval(() => {
             progress += Math.random() * 8;
             if (progress >= 100) {
@@ -146,20 +560,27 @@
                 clearInterval(interval);
                 redirectToMainSite();
             }
-            percentageElement.textContent = Math.floor(progress) + '%';
+            
+            const displayProgress = Math.floor(progress);
+            percentageElement.textContent = displayProgress + '%';
+            progressBar.style.width = displayProgress + '%';
+            
+            // Simulate system stats
+            cpuElement.textContent = Math.floor(20 + progress * 0.7) + '%';
+            memoryElement.textContent = Math.floor(128 + progress * 2.5) + 'MB';
         }, 200);
 
-        // Function to redirect to main website
         function redirectToMainSite() {
             setTimeout(() => {
-                // Redirect to Flask home route
                 window.location.href = '/home';
             }, 500);
         }
+
+        // Resize canvas on window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
     </script>
 </body>
 </html>
-
-
-
-
