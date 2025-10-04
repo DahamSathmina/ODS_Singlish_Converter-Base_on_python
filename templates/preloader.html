@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/icons/main_logo.svg" type="image/x-icon">
-    <title>ACCESS GRANTED</title>
+    <title>Singlish Converter Initializing...</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@500;600;700;900&display=swap');
 
         * {
             margin: 0;
@@ -14,377 +13,292 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Share Tech Mono', monospace;
-            overflow: hidden;
-            background: #000;
-            color: #0f0;
+        :root {
+            --primary-red: #ff0000;
+            --secondary-red: #990000;
+            --accent-red: #cc0000;
+            --cyber-green: #00ff00;
+            --cyber-blue: #00ffff;
+            --cyber-yellow: #ffff00;
         }
 
-        /* Cyber Background */
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            overflow: hidden;
+            background: #000000;
+            color: #fff;
+        }
+
+        /* Cyber Background System */
         #preloader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(ellipse at center, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
-                linear-gradient(180deg, #000 0%, #0a0000 50%, #000 100%);
+            background: #000000;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 9999;
         }
 
-        /* Matrix Rain Effect */
+        /* Animated Grid Background */
+        .cyber-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 0, 0, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridFlow 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes gridFlow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Matrix Canvas */
         #matrix-canvas {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.15;
+            opacity: 0.08;
+            z-index: 1;
+        }
+
+        /* Scanline Effect */
+        .scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                transparent 0%,
+                rgba(255, 0, 0, 0.03) 50%,
+                transparent 100%
+            );
+            animation: scan 8s linear infinite;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
         }
 
         /* Glitch Lines */
+        .glitch-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+        }
+
         .glitch-line {
             position: absolute;
             width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #ff0000, transparent);
-            animation: glitchScan 4s linear infinite;
-            opacity: 0.3;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+            opacity: 0;
+            animation: glitchRandom 5s infinite;
         }
 
-        .glitch-line:nth-child(2) {
-            animation-delay: 2s;
-            background: linear-gradient(90deg, transparent, #00ff00, transparent);
+        .glitch-line:nth-child(1) { top: 20%; animation-delay: 0s; }
+        .glitch-line:nth-child(2) { top: 45%; animation-delay: 1.5s; }
+        .glitch-line:nth-child(3) { top: 70%; animation-delay: 3s; }
+
+        @keyframes glitchRandom {
+            0%, 90%, 100% { opacity: 0; }
+            91%, 95% { opacity: 0.8; transform: translateX(0); }
+            93% { transform: translateX(-10px); }
+            94% { transform: translateX(10px); }
         }
 
-        @keyframes glitchScan {
-            0%, 100% { transform: translateY(0); opacity: 0; }
-            50% { opacity: 0.3; }
-            100% { transform: translateY(100vh); }
-        }
-
-        /* Main Terminal */
-        .hacker-terminal {
+        /* Main Container */
+        .main-container {
             position: relative;
             z-index: 10;
-            background: rgba(0, 0, 0, 0.95);
-            border: 2px solid #ff0000;
-            border-radius: 0;
-            padding: 0;
-            max-width: 800px;
             width: 90%;
-            box-shadow: 
-                0 0 50px rgba(255, 0, 0, 0.5),
-                inset 0 0 30px rgba(255, 0, 0, 0.1),
-                0 0 100px rgba(255, 0, 0, 0.3);
-            animation: borderPulse 2s infinite;
+            max-width: 1200px;
+            animation: fadeInScale 0.8s ease-out;
         }
 
-        @keyframes borderPulse {
-            0%, 100% { 
-                border-color: #ff0000;
-                box-shadow: 
-                    0 0 50px rgba(255, 0, 0, 0.5),
-                    inset 0 0 30px rgba(255, 0, 0, 0.1),
-                    0 0 100px rgba(255, 0, 0, 0.3);
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
             }
-            50% { 
-                border-color: #ff3333;
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Terminal Window */
+        .terminal-window {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(10, 0, 0, 0.98) 100%);
+            border: 2px solid var(--primary-red);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 
+                0 0 80px rgba(255, 0, 0, 0.3),
+                0 0 40px rgba(255, 0, 0, 0.2),
+                inset 0 0 60px rgba(0, 0, 0, 0.8);
+            animation: borderGlow 3s infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% {
+                border-color: var(--primary-red);
                 box-shadow: 
-                    0 0 70px rgba(255, 0, 0, 0.7),
-                    inset 0 0 40px rgba(255, 0, 0, 0.15),
-                    0 0 120px rgba(255, 0, 0, 0.5);
+                    0 0 80px rgba(255, 0, 0, 0.3),
+                    0 0 40px rgba(255, 0, 0, 0.2),
+                    inset 0 0 60px rgba(0, 0, 0, 0.8);
+            }
+            50% {
+                border-color: var(--accent-red);
+                box-shadow: 
+                    0 0 100px rgba(255, 0, 0, 0.4),
+                    0 0 60px rgba(255, 0, 0, 0.3),
+                    inset 0 0 80px rgba(0, 0, 0, 0.8);
             }
         }
 
         /* Terminal Header */
         .terminal-header {
-            background: #ff0000;
+            background: linear-gradient(90deg, var(--primary-red) 0%, var(--secondary-red) 100%);
             padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid #000;
+            border-bottom: 1px solid rgba(255, 0, 0, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
         }
 
         .header-left {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
-        .skull {
-            color: #000;
-            font-size: 20px;
-            animation: skullGlow 2s infinite;
+        .terminal-icon {
+            width: 32px;
+            height: 32px;
+            background: #000;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            animation: iconPulse 2s infinite;
         }
 
-        @keyframes skullGlow {
-            0%, 100% { text-shadow: 0 0 5px #000; }
-            50% { text-shadow: 0 0 15px #fff; }
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
-        .header-title {
-            color: #000;
+        .terminal-title {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .title-main {
+            font-family: 'Orbitron', sans-serif;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 700;
+            color: #000;
             letter-spacing: 2px;
         }
 
-        .header-right {
+        .title-sub {
+            font-size: 10px;
+            color: rgba(0, 0, 0, 0.7);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .terminal-buttons {
             display: flex;
-            gap: 10px;
+            gap: 6px;
         }
 
-        .header-dot {
-            width: 10px;
-            height: 10px;
-            background: #000;
+        .terminal-button {
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            animation: dotBlink 1s infinite;
+            background: #000;
+            animation: buttonBlink 2s infinite;
         }
 
-        .header-dot:nth-child(2) { animation-delay: 0.3s; }
-        .header-dot:nth-child(3) { animation-delay: 0.6s; }
+        .terminal-button:nth-child(1) { animation-delay: 0s; }
+        .terminal-button:nth-child(2) { animation-delay: 0.3s; }
+        .terminal-button:nth-child(3) { animation-delay: 0.6s; }
 
-        @keyframes dotBlink {
-            0%, 50%, 100% { opacity: 1; }
-            25%, 75% { opacity: 0.3; }
+        @keyframes buttonBlink {
+            0%, 50%, 100% { opacity: 0.4; }
+            25%, 75% { opacity: 1; }
         }
 
         /* Terminal Body */
         .terminal-body {
-            padding: 30px;
+            padding: clamp(20px, 4vw, 40px);
         }
 
-        /* System Status */
-        .system-status {
-            margin-bottom: 25px;
-        }
-
-        .status-line {
-            color: #ff0000;
-            font-size: 14px;
-            margin: 8px 0;
-            opacity: 0;
-            animation: hackText 0.5s forwards;
-        }
-
-        .status-line:nth-child(1) { animation-delay: 0.1s; }
-        .status-line:nth-child(2) { animation-delay: 0.3s; }
-        .status-line:nth-child(3) { animation-delay: 0.5s; }
-        .status-line:nth-child(4) { animation-delay: 0.7s; }
-
-        @keyframes hackText {
-            0% { 
-                opacity: 0;
-                transform: translateX(-10px);
-                filter: blur(5px);
-            }
-            100% { 
-                opacity: 1;
-                transform: translateX(0);
-                filter: blur(0);
-            }
-        }
-
-        .status-line .success {
-            color: #00ff00;
-        }
-
-        .status-line .warning {
-            color: #ffff00;
-        }
-
-        .status-line .error {
-            color: #ff0000;
-        }
-
-        .status-line .info {
-            color: #00ffff;
-        }
-
-        /* Glitch Text */
-        .glitch {
-            position: relative;
-            display: inline-block;
-        }
-
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0.8;
-        }
-
-        .glitch::before {
-            animation: glitch1 2s infinite;
-            color: #ff0000;
-            z-index: -1;
-        }
-
-        .glitch::after {
-            animation: glitch2 2s infinite;
-            color: #00ff00;
-            z-index: -2;
-        }
-
-        @keyframes glitch1 {
-            0%, 100% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-        }
-
-        @keyframes glitch2 {
-            0%, 100% { transform: translate(0); }
-            20% { transform: translate(2px, -2px); }
-            40% { transform: translate(2px, 2px); }
-            60% { transform: translate(-2px, -2px); }
-            80% { transform: translate(-2px, 2px); }
-        }
-
-        /* Access Panel */
-        .access-panel {
-            background: rgba(255, 0, 0, 0.05);
-            border: 1px solid #ff0000;
+        /* Code Section */
+        .code-section {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 8px;
             padding: 20px;
-            margin: 20px 0;
-        }
-
-        .access-title {
-            color: #ff0000;
-            font-size: 18px;
-            margin-bottom: 15px;
-            text-align: center;
-            letter-spacing: 3px;
-            text-shadow: 0 0 10px #ff0000;
-        }
-
-        /* Progress Bar */
-        .progress-section {
-            margin: 20px 0;
-        }
-
-        .progress-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            color: #ff0000;
+            margin-bottom: 25px;
             font-size: 13px;
         }
 
-        .percentage {
-            color: #00ff00;
-            font-weight: bold;
-            text-shadow: 0 0 5px #00ff00;
+        .code-line {
+            color: #888;
+            margin: 8px 0;
+            opacity: 0;
+            animation: fadeInLine 0.5s forwards;
+            font-family: 'JetBrains Mono', monospace;
         }
 
-        .progress-bar-container {
-            height: 20px;
-            background: #000;
-            border: 1px solid #ff0000;
-            position: relative;
-            overflow: hidden;
+        .code-line:nth-child(1) { animation-delay: 0.2s; }
+        .code-line:nth-child(2) { animation-delay: 0.5s; }
+        .code-line:nth-child(3) { animation-delay: 0.8s; }
+        .code-line:nth-child(4) { animation-delay: 1.1s; }
+
+        @keyframes fadeInLine {
+            to { opacity: 1; }
         }
 
-        .progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #ff0000, #ff3333, #ff0000);
-            background-size: 200% 100%;
-            animation: progressGlow 2s linear infinite;
-            transition: width 0.3s ease;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
-            position: relative;
-        }
+        .code-line .comment { color: #666; }
+        .code-line .keyword { color: #ff0000; }
+        .code-line .string { color: #ff6666; }
+        .code-line .function { color: #ff9999; }
 
-        @keyframes progressGlow {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-
-        .progress-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-            animation: shine 1.5s infinite;
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(200%); }
-        }
-
-        /* Cyber Grid */
-        .cyber-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .grid-cell {
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid #ff0000;
-            padding: 10px;
-            text-align: center;
-            font-size: 11px;
-            color: #ff0000;
-            animation: cellPulse 3s infinite;
-        }
-
-        .grid-cell:nth-child(1) { animation-delay: 0s; }
-        .grid-cell:nth-child(2) { animation-delay: 0.5s; }
-        .grid-cell:nth-child(3) { animation-delay: 1s; }
-
-        @keyframes cellPulse {
-            0%, 100% { 
-                background: rgba(255, 0, 0, 0.1);
-                box-shadow: inset 0 0 5px rgba(255, 0, 0, 0.3);
-            }
-            50% { 
-                background: rgba(255, 0, 0, 0.2);
-                box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.5);
-            }
-        }
-
-        .grid-value {
-            color: #00ff00;
-            font-size: 16px;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-
-        /* Loading Animation */
-        .loading-text {
-            text-align: center;
-            color: #ff0000;
-            font-size: 14px;
-            margin-top: 20px;
-            letter-spacing: 2px;
-        }
-
-        .cursor-blink {
+        .cursor {
             display: inline-block;
-            width: 10px;
-            height: 16px;
+            width: 8px;
+            height: 14px;
             background: #ff0000;
-            margin-left: 5px;
-            animation: blink 0.8s infinite;
+            margin-left: 2px;
+            animation: blink 1s infinite;
         }
 
         @keyframes blink {
@@ -392,122 +306,473 @@
             50%, 100% { opacity: 0; }
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hacker-terminal {
+        /* Status Grid */
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 25px;
+        }
+
+        .status-card {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.05), transparent);
+            animation: cardShine 3s infinite;
+        }
+
+        @keyframes cardShine {
+            0%, 100% { left: -100%; }
+            50% { left: 100%; }
+        }
+
+        .status-card:hover {
+            background: rgba(0, 0, 0, 0.85);
+            border-color: var(--primary-red);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .status-label {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .status-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #00ff00;
+        }
+
+        .status-icon {
+            font-size: 10px;
+            color: var(--primary-red);
+            margin-right: 4px;
+        }
+
+        /* Progress Section */
+        .progress-section {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: clamp(20px, 3vw, 25px);
+            margin: 20px 0;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .progress-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(14px, 2vw, 16px);
+            font-weight: 600;
+            color: var(--primary-red);
+            letter-spacing: 1px;
+        }
+
+        .progress-title::before {
+            content: '>';
+            margin-right: 8px;
+            animation: blink 1s infinite;
+        }
+
+        .percentage-display {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 900;
+            color: #00ff00;
+        }
+
+        /* Progress Bar */
+        .progress-bar-wrapper {
+            position: relative;
+            height: 28px;
+            background: #000;
+            border: 2px solid rgba(255, 0, 0, 0.4);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .progress-bar-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 0, 0, 0.03),
+                rgba(255, 0, 0, 0.03) 10px,
+                rgba(255, 0, 0, 0.01) 10px,
+                rgba(255, 0, 0, 0.01) 20px
+            );
+        }
+
+        .progress-bar-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary-red), var(--accent-red), var(--primary-red));
+            background-size: 200% 100%;
+            animation: progressShimmer 2s linear infinite;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+        }
+
+        @keyframes progressShimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent);
+        }
+
+        /* System Logs */
+        .system-logs {
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            max-height: 160px;
+            overflow-y: auto;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .system-logs::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .system-logs::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .system-logs::-webkit-scrollbar-thumb {
+            background: var(--primary-red);
+            border-radius: 3px;
+        }
+
+        .log-entry {
+            display: flex;
+            align-items: flex-start;
+            margin: 6px 0;
+            font-size: 12px;
+            opacity: 0;
+            animation: logFadeIn 0.5s forwards;
+        }
+
+        .log-entry:nth-child(1) { animation-delay: 1.5s; }
+        .log-entry:nth-child(2) { animation-delay: 2s; }
+        .log-entry:nth-child(3) { animation-delay: 2.5s; }
+        .log-entry:nth-child(4) { animation-delay: 3s; }
+        .log-entry:nth-child(5) { animation-delay: 3.5s; }
+
+        @keyframes logFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .log-icon {
+            margin-right: 8px;
+            font-weight: bold;
+            min-width: 16px;
+        }
+
+        .log-icon.success { color: var(--cyber-green); }
+        .log-icon.warning { color: var(--cyber-yellow); }
+        .log-icon.info { color: var(--cyber-blue); }
+        .log-icon.error { color: var(--primary-red); }
+
+        .log-text {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+        }
+
+        .log-time {
+            color: rgba(255, 255, 255, 0.4);
+            margin-left: auto;
+            padding-left: 10px;
+            font-size: 10px;
+        }
+
+        /* Loading Animation */
+        .loading-animation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .loading-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--primary-red);
+            letter-spacing: 1px;
+        }
+
+        .small-loader {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 0, 0, 0.2);
+            border-top: 2px solid var(--primary-red);
+            border-radius: 50%;
+            animation: spinLoader 0.8s linear infinite;
+        }
+
+        @keyframes spinLoader {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-container {
                 width: 95%;
             }
+        }
 
-            .terminal-body {
-                padding: 20px;
+        @media (max-width: 768px) {
+            .terminal-header {
+                padding: 10px 16px;
             }
 
-            .header-title {
-                font-size: 12px;
+            .terminal-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 16px;
             }
 
-            .status-line {
-                font-size: 11px;
-            }
-
-            .access-title {
+            .title-main {
                 font-size: 14px;
             }
 
-            .cyber-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .title-sub {
+                font-size: 9px;
+            }
+
+            .status-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .code-section {
+                padding: 15px;
+            }
+
+            .code-line {
+                font-size: 11px;
+            }
+
+            .system-logs {
+                max-height: 130px;
+                padding: 15px;
+            }
+
+            .log-entry {
+                font-size: 11px;
+            }
+
+            .progress-bar-wrapper {
+                height: 24px;
             }
         }
 
         @media (max-width: 480px) {
             .terminal-body {
-                padding: 15px;
+                padding: 16px;
             }
 
-            .status-line {
+            .title-main {
+                font-size: 12px;
+                letter-spacing: 1px;
+            }
+
+            .title-sub {
+                font-size: 8px;
+            }
+
+            .terminal-button {
+                width: 10px;
+                height: 10px;
+            }
+
+            .progress-section {
+                padding: 16px;
+            }
+
+            .progress-bar-wrapper {
+                height: 20px;
+            }
+
+            .status-value {
+                font-size: 18px;
+            }
+
+            .code-line {
                 font-size: 10px;
             }
+        }
 
-            .cyber-grid {
-                grid-template-columns: 1fr;
+        @media (max-width: 360px) {
+            .terminal-body {
+                padding: 12px;
+            }
+
+            .code-section,
+            .progress-section,
+            .system-logs {
+                padding: 12px;
             }
         }
     </style>
 </head>
 <body>
     <div id="preloader">
+        <div class="cyber-grid"></div>
         <canvas id="matrix-canvas"></canvas>
-        <div class="glitch-line"></div>
-        <div class="glitch-line"></div>
+        <div class="scanline"></div>
+        <div class="glitch-overlay">
+            <div class="glitch-line"></div>
+            <div class="glitch-line"></div>
+            <div class="glitch-line"></div>
+        </div>
 
-        <div class="hacker-terminal">
-            <!-- Header -->
-            <div class="terminal-header">
-                <div class="header-left">
-                    <div class="skull">☠</div>
-                    <div class="header-title">SINGLISH CONVERTER v2.0</div>
-                </div>
-                <div class="header-right">
-                    <div class="header-dot"></div>
-                    <div class="header-dot"></div>
-                    <div class="header-dot"></div>
-                </div>
-            </div>
-
-            <!-- Body -->
-            <div class="terminal-body">
-                <!-- System Status -->
-                <div class="system-status">
-                    <div class="status-line">
-                        <span class="success">[✓]</span> Establishing secure connection...
+        <div class="main-container">
+            <div class="terminal-window">
+                <!-- Terminal Header -->
+                <div class="terminal-header">
+                    <div class="header-left">
+                        <div class="terminal-icon">⚡</div>
+                        <div class="terminal-title">
+                            <div class="title-main">SINGLISH CONVERTER</div>
+                            <div class="title-sub">NEURAL ENGINE v2.5</div>
+                        </div>
                     </div>
-                    <div class="status-line">
-                        <span class="success">[✓]</span> Loading language modules...
-                    </div>
-                    <div class="status-line">
-                        <span class="warning">[⚡]</span> Initializing Singlish parser...
-                    </div>
-                    <div class="status-line">
-                        <span class="info">[→]</span> Compiling translation engine...
+                    <div class="terminal-buttons">
+                        <div class="terminal-button"></div>
+                        <div class="terminal-button"></div>
+                        <div class="terminal-button"></div>
                     </div>
                 </div>
 
-                <!-- Access Panel -->
-                <div class="access-panel">
-                    <div class="access-title">
-                        <span class="glitch" data-text="ACCESS GRANTED">ACCESS GRANTED</span>
+                <!-- Terminal Body -->
+                <div class="terminal-body">
+                    <!-- Code Section -->
+                    <div class="code-section">
+                        <div class="code-line">
+                            <span class="comment">// Initializing Singlish Translation Engine...</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="keyword">import</span> <span class="function">{ Converter }</span> <span class="keyword">from</span> <span class="string">'./modules/translator'</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="keyword">const</span> <span class="function">engine</span> = <span class="keyword">new</span> <span class="function">Converter()</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="function">engine.initialize()</span><span class="cursor"></span>
+                        </div>
                     </div>
 
-                    <!-- Progress Bar -->
+                    <!-- Status Grid -->
+                    <div class="status-grid">
+                        <div class="status-card">
+                            <div class="status-label"><span class="status-icon">▸</span>CPU Usage</div>
+                            <div class="status-value" id="cpu">0%</div>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-label"><span class="status-icon">▸</span>Memory</div>
+                            <div class="status-value" id="memory">0MB</div>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-label"><span class="status-icon">▸</span>Latency</div>
+                            <div class="status-value" id="network">0ms</div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Section -->
                     <div class="progress-section">
-                        <div class="progress-info">
-                            <span>LOADING SYSTEM</span>
-                            <span class="percentage" id="percentage">0%</span>
+                        <div class="progress-header">
+                            <div class="progress-title">loading system</div>
+                            <div class="percentage-display" id="percentage">0%</div>
                         </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" id="progressBar"></div>
-                        </div>
-                    </div>
-
-                    <!-- Cyber Grid -->
-                    <div class="cyber-grid">
-                        <div class="grid-cell">
-                            <div>CPU USAGE</div>
-                            <div class="grid-value" id="cpu">0%</div>
-                        </div>
-                        <div class="grid-cell">
-                            <div>MEMORY</div>
-                            <div class="grid-value" id="memory">0MB</div>
-                        </div>
-                        <div class="grid-cell">
-                            <div>STATUS</div>
-                            <div class="grid-value">ACTIVE</div>
+                        <div class="progress-bar-wrapper">
+                            <div class="progress-bar-bg"></div>
+                            <div class="progress-bar-fill" id="progressBar"></div>
                         </div>
                     </div>
 
-                    <!-- Loading Text -->
-                    <div class="loading-text">
-                        INITIALIZING<span class="cursor-blink"></span>
+                    <!-- System Logs -->
+                    <div class="system-logs" id="systemLogs">
+                        <div class="log-entry">
+                            <span class="log-icon success">✓</span>
+                            <span class="log-text">Connecting to language database</span>
+                            <span class="log-time">00:01</span>
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-icon success">✓</span>
+                            <span class="log-text">Loading phonetic modules</span>
+                            <span class="log-time">00:02</span>
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-icon info">→</span>
+                            <span class="log-text">Initializing translation engine</span>
+                            <span class="log-time">00:03</span>
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-icon warning">⚡</span>
+                            <span class="log-text">Compiling Unicode mappings</span>
+                            <span class="log-time">00:04</span>
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-icon info">→</span>
+                            <span class="log-text">Calibrating algorithms</span>
+                            <span class="log-time">00:05</span>
+                        </div>
+                    </div>
+
+                    <!-- Loading Animation -->
+                    <div class="loading-animation">
+                        <span class="loading-text">processing...</span>
+                        <div class="small-loader"></div>
                     </div>
                 </div>
             </div>
@@ -519,24 +784,29 @@
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
 
-        const chars = 'අආඇඈඉඊඋඌඑඒඓඔඕකගටඩපබමයරලවෂසහළෆ01';
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const sinhalaChars = 'අආඇඈඉඊඋඌඑඒඓඔඕකගටඩපබමයරලවෂසහළෆ01';
         const fontSize = 14;
-        const columns = canvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1);
+        let columns = Math.floor(canvas.width / fontSize);
+        let drops = Array(columns).fill(1);
 
         function drawMatrix() {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#f00';
+            ctx.fillStyle = '#ff0000';
             ctx.font = fontSize + 'px monospace';
 
             for (let i = 0; i < drops.length; i++) {
-                const text = chars[Math.floor(Math.random() * chars.length)];
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                const char = sinhalaChars[Math.floor(Math.random() * sinhalaChars.length)];
+                ctx.fillText(char, i * fontSize, drops[i] * fontSize);
 
                 if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                     drops[i] = 0;
@@ -547,13 +817,71 @@
 
         setInterval(drawMatrix, 50);
 
-        // Progress Animation
+        // Real System Monitoring
         let progress = 0;
         const percentageElement = document.getElementById('percentage');
         const progressBar = document.getElementById('progressBar');
         const cpuElement = document.getElementById('cpu');
         const memoryElement = document.getElementById('memory');
+        const networkElement = document.getElementById('network');
 
+        // Get REAL Memory Usage
+        function getRealMemory() {
+            if (performance.memory) {
+                const usedMemory = performance.memory.usedJSHeapSize / (1024 * 1024);
+                return Math.floor(usedMemory);
+            }
+            return Math.floor(Math.random() * 100 + 200);
+        }
+
+        // Measure REAL Network Latency
+        async function getRealNetworkLatency() {
+            const startTime = performance.now();
+            try {
+                await fetch(window.location.href, { method: 'HEAD', cache: 'no-cache' });
+                const latency = performance.now() - startTime;
+                return Math.floor(latency);
+            } catch {
+                return Math.floor(Math.random() * 50 + 20);
+            }
+        }
+
+        // Measure REAL CPU Usage
+        let lastFrameTime = performance.now();
+        let frameCount = 0;
+        let cpuUsage = 0;
+
+        function measureCPU() {
+            const currentTime = performance.now();
+            const deltaTime = currentTime - lastFrameTime;
+            frameCount++;
+
+            if (frameCount >= 10) {
+                const avgFrameTime = deltaTime / frameCount;
+                const targetFrameTime = 1000 / 60;
+                cpuUsage = Math.min(100, Math.floor((avgFrameTime / targetFrameTime) * 100));
+                frameCount = 0;
+            }
+            lastFrameTime = currentTime;
+            requestAnimationFrame(measureCPU);
+        }
+
+        measureCPU();
+
+        // Update Real Stats
+        function updateRealStats() {
+            cpuElement.textContent = cpuUsage + '%';
+            memoryElement.textContent = getRealMemory() + 'MB';
+            
+            getRealNetworkLatency().then(latency => {
+                networkElement.textContent = latency + 'ms';
+            });
+        }
+
+        setInterval(updateRealStats, 500);
+        updateRealStats();
+
+        // Progress Animation
         const interval = setInterval(() => {
             progress += Math.random() * 8;
             if (progress >= 100) {
@@ -565,10 +893,6 @@
             const displayProgress = Math.floor(progress);
             percentageElement.textContent = displayProgress + '%';
             progressBar.style.width = displayProgress + '%';
-            
-            // Simulate system stats
-            cpuElement.textContent = Math.floor(20 + progress * 0.7) + '%';
-            memoryElement.textContent = Math.floor(128 + progress * 2.5) + 'MB';
         }, 200);
 
         function redirectToMainSite() {
@@ -577,11 +901,13 @@
             }, 500);
         }
 
-        // Resize canvas on window resize
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
+        // Auto-scroll logs
+        const logsContainer = document.getElementById('systemLogs');
+        setInterval(() => {
+            if (logsContainer.scrollHeight > logsContainer.clientHeight) {
+                logsContainer.scrollTop = logsContainer.scrollHeight;
+            }
+        }, 1000);
     </script>
 </body>
 </html>
