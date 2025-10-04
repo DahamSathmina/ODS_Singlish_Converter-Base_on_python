@@ -16,6 +16,7 @@
 }
 
 [data-theme="light"] {
+    /* Light theme colors */
   --header-color: #1f2937;  
   --bg-color: #090c0f; /* or #1b242f */
   --text-color: #dbdbdb;
