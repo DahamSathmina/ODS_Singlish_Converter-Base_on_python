@@ -3,10 +3,11 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Singlish Unicode Converter | ODS</title>
+  <title>Singlish Unicode Converter | ODSD</title>
   <meta name="author" content="Daham Sathmin">
   <meta name="description" content="Convert Singlish to Sinhala Unicode instantly with this real-time converter. Clean Focus Mode ensures smooth, distraction-free Sinhala typing. Developed by DSathmin.">
   <link rel="shortcut icon" href="./assets/icons/web/favicon.ico" type="image/x-icon">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   <!-- Link to CSS, js and logo in Flask static folder -->
   <link rel="icon" href="{{ url_for('static', filename='assets/icons/main_logo.png') }}" type="image/x-icon" />
@@ -35,7 +36,8 @@
   </header>
 
   <!---------- Main content area ------------->
-<main class="main-content">
+<main>
+  <div class="main-content">
   <div class="titles">
     <span class="main-title">Singlish to <span class="red_text">Unicode</span> Converter</span><br />
     <span class="small-title">Type in transliterated Sinhala (Singlish) and get text in Unicode</span>
@@ -232,6 +234,7 @@
         <td>gYa ග්‍ය</td>
       </tr>
     </table>
+  </div>
   </div>
   </div>
 </main>

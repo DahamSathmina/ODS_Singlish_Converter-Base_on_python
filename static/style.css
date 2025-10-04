@@ -4,11 +4,11 @@
 :root {
     /* Dark theme colors */
   --header-color: #1f2937a2;  
-  --bg-color: #1b242f;
+  --bg-color: #090c0f; /* or #1b242f */
   --text-color: #dbdbdb;
   --main_title-color: #ffffff;
-  --area-bg-color: rgba(43, 56, 75, 0.985);
-  --footer-bg-color: #111827;
+  --area-bg-color: rgba(27, 35, 47, 0.985);
+  --footer-bg-color: #090c0f;
   --secondary-color: #dc2626;
   --red_text_color: #dc2626;
   --button-bg-color: #ff1010d2;
@@ -17,11 +17,11 @@
 
 [data-theme="light"] {
   --header-color: #1f2937;  
-  --bg-color: #1b242f;
+  --bg-color: #090c0f; /* or #1b242f */
   --text-color: #dbdbdb;
   --main_title-color: #ffffff;
-  --area-bg-color: rgb(35, 46, 61);
-  --footer-bg-color: #111827;
+  --area-bg-color: rgba(27, 35, 47, 0.985);
+  --footer-bg-color: #090c0f;
   --secondary-color: #dc2626;
   --red_text_color: #ffffff;
   --button-bg-color: #ff1010d2;
@@ -187,13 +187,13 @@ body{
     padding: 10px;
 }
 .secondary-title{
-    font-size: 16px; 
+    font-size: 15px; 
     font-weight: 500;
-    color: var(--secondary-color);
+    color: var(--text-color);
 }
 
 .glow{
-    box-shadow: 0px 0px 2px 0px #dc2626;
+    box-shadow: 0px 0px 2px 0px none;
 }
 
 textarea {
@@ -202,13 +202,13 @@ textarea {
     height: 250px;
     padding: 12px 20px;
     box-sizing: border-box;
-    border: 1.8px solid #fffffffb;
+    border: 1.0px solid #fffffffb;
     border-radius: 13px;
     resize: none;
     caret-color: hsl(0, 0%, 92%);
     font-size:17px;
     color:#ffffff;
-    background-color: rgba(52, 58, 71, 0.83);
+    background-color: #293648e8;
     margin-top:10px;
   }
 
@@ -368,20 +368,20 @@ tr:nth-child(even) td {
   background-color: #ff10101f;
   border-left: 3px solid var(--secondary-color);
 }
-
-.main-content {
-  background-color: var(--footer-bg-color);
-  padding-bottom: 40px;
-  margin-bottom: 20px;
-}
 /* Feature Section */
+.features {
+    background-color: var(--header-color);
+    margin-top: 30px;
+    padding-bottom: 40px;
+}
 .features-title {
     text-align: center;
     padding-bottom: 8px;
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 35px;
+    font-weight: 600;
     color: var(--main_title-color);
-    margin-top: 40px;
+    padding-top: 40px;
+    margin-top: 50px;
     margin-bottom: 30px;
     text-decoration-line: underline;
     text-decoration-color: var(--secondary-color);
@@ -403,13 +403,12 @@ tr:nth-child(even) td {
     padding: 20px;
     text-align: center;
     border-radius: 13px;
-    box-shadow: 0 0px 5px rgba(255, 0, 0, 0.092);
     transition: box-shadow 0.3s ease;
 }
 
 .feature-card:hover {
-    box-shadow: 0 0px 5px rgba(255, 0, 0, 0.092);
     border-top: 4px solid var(--secondary-color);
+    box-shadow: 0 2px 2px #090c0fc5;
 }
 
 .feature-icon {
@@ -445,7 +444,8 @@ tr:nth-child(even) td {
 footer {
   background-color: var(--footer-bg-color);
   padding: 30px 20px 15px 0px;
-  margin-top: 80px;
+  margin-top: none;
+  padding-top: 35px;
   max-width: 100%;
   overflow-x: hidden;
   color: var(--text-color);
