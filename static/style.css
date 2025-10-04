@@ -424,16 +424,20 @@ tr:nth-child(even) td {
 .feature-icon {
     width: 50px;
     height: 50px;
+    display: inline-flex;
+    align-items: center;
     margin-bottom: 10px;
 }
 .card-title {
+    text-align: center;
     font-size: 17px;
-    font-weight: 580;
+    font-weight: 500;
     color: var(--main_title-color);
 }
 
 .feature-description {
-    font-size: 14px;
+    text-align: center;
+    font-size: 13px;
     color: var(--text-color);
     margin-top: 10px;
 }
@@ -520,6 +524,9 @@ footer {
 .social-icons a img {
   width: 22px;
   height: 22px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 10px;
   transition: transform 0.3s ease;
 }
