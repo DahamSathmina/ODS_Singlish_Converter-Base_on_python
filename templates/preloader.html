@@ -72,9 +72,13 @@
         .brand-name {
             font-size: 20px;
             font-weight: 600;
-            color: #000000;
+            color: #0a0a0a;
             margin-bottom: 8px;
             letter-spacing: -0.02em;
+        }
+        .brand-name .odsd {
+            font-weight: 600;
+            color: #dc2626;
         }
 
         /* Tagline */
@@ -157,11 +161,11 @@
         <div class="loader-container">
             <!-- Logo -->
             <div class="logo">
-                <img src="{{ url_for('static', filename='assets/icons/web/icon-512.png') }}" alt="Logo">
+                <img src="{{ url_for('static', filename='assets/icons/main_logo.png') }}" alt="Logo">
             </div>
 
             <!-- Brand Name -->
-            <div class="brand-name">ODSD Singlish Converter</div>
+            <div class="brand-name"><span class="odsd">ODSD </span>Singlish Converter</div>
             
             <!-- Tagline -->
             <div class="tagline">Realtime Translation Engine</div>
@@ -170,7 +174,7 @@
             <div class="spinner"></div>
 
             <!-- Loading Text -->
-            <div class="loading-text">LOADING</div>
+            <div class="loading-text">LOADING..</div>
 
             <!-- Progress Bar -->
             <!-- <div class="progress-container">
