@@ -1,1 +1,94 @@
-.vercel
+# ======================================
+# Python / Flask
+# ======================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Flask instance & config
+instance/
+*.db
+*.sqlite3
+config.py
+.env
+.env.*
+*.env
+
+# Logs & cache
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+.cache/
+__pycache__/
+.cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# ======================================
+# Vercel Deployment
+# ======================================
+.vercel/
+.vercel_build_output/
+.now/
+
+# ======================================
+# Backend & Frontend (HTML / CSS / JS)
+# ======================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+package-lock.json
+
+# Build or minified files
+*.min.js
+*.min.css
+*.map
+
+# ======================================
+# IDE / Editor Settings
+# ======================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*.tmp
+*.orig
+
+# ======================================
+# OS Files
+# ======================================
+.DS_Store
+Thumbs.db
+__MACOSX/
+
+# ======================================
+# Distribution / Build Files
+# ======================================
+build/
+dist/
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
+
+# ======================================
+# Miscellaneous
+# ======================================
+*.tar.gz
+*.zip
+*.7z
+*.rar
