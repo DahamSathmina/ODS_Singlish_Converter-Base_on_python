@@ -82,12 +82,11 @@ Open `http://localhost:5000` in your browser, paste Singlish input, click **Conv
 ├── app.py                  # Flask web application
 ├── converter.py            # Core Singlish -> Sinhala logic
 ├── requirements.txt        # Python dependencies
-├── images/                 # Screenshots and visuals
+├── Demo/                 # Screenshots and visuals
 │   ├── web-ui.png
 │   └── converted-text.png
 ├── static/                 # Front-end assets (css/js)
 ├── templates/              # HTML templates for the web UI
-├── extension/              # Browser extension files (optional)
 └── LICENSE                 # GPL-3.0 License
 ```
 
