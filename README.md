@@ -7,11 +7,8 @@
 
 ---
 
-## 🎬 Demo Video
-[![Watch the demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)  
-**Replace** `YOUR_VIDEO_ID` above with your YouTube video id (or remove this section if you prefer).
-
-> If you prefer embedding an `.mp4` file directly in GitHub README, upload the file to the repo and use a relative path to include it.
+##  Example Video
+![Singlish to Sinhala Conversion Demo](images/demo.gif)
 
 ---
 
@@ -116,7 +113,7 @@ This project is licensed under the [GNU General Public License v3.0](https://www
 ---
 
 ## 📞 Contact
-- Author: Daham Sathmin (NisalHe)  
+- Author: Daham Sathmin  
 - GitHub: https://github.com/DahamSathmina  
 - For support or collaboration, create an issue in the repository.
 
