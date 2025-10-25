@@ -8,7 +8,7 @@
 ---
 
 ##  Example Video
-![Singlish to Sinhala Conversion Demo](images/demo.gif)
+![Singlish to Sinhala Conversion Demo](Demo/demo.gif)
 
 ---
 
@@ -31,7 +31,8 @@ This project supports a web UI (Flask), and can be extended into CLI, desktop, o
 ## 🖼 Screenshots
 | Web Interface | Conversion Example |
 |--------------:|-------------------:|
-| ![Web UI screenshot](images/web-ui.png) | ![Converted text screenshot](images/converted-text.png) |
+| ![Web UI Screenshot](Demo/Demo.png)
+ | ![Converted text screenshot](images/converted-text.png) |
 
 *(Upload your screenshots into `images/` and keep these paths or change them to match your repo.)*
 
