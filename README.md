@@ -24,7 +24,7 @@ This project supports a web UI (Flask), and can be extended into CLI, desktop, o
 ---
 
 ##  preview
-<img src="Demo/web-ui.png" alt="UI Screenshot" width="60%"/><img src="Demo/converted-text.png" alt="UI Screenshot" width="50%"/>
+<img src="Demo/web-ui.png" alt="UI Screenshot" width="50%"/><img src="Demo/converted-text.png" alt="UI Screenshot" width="50%"/>
 <img src="Demo/web-ui-phone.png" alt="UI Screenshot" width="30%"/>
 
 ---
