@@ -7,11 +7,6 @@
 
 ---
 
-##  Example Video
-![Singlish to Sinhala Conversion Demo](Demo/demo.gif)
-
----
-
 ## 💡 What it does
 ODS Singlish Converter converts Singlish (Latin-script Sinhala) into Sinhala Unicode text.  
 Example: `kohomadha` → `කොහොමද`.
@@ -31,9 +26,9 @@ This project supports a web UI (Flask), and can be extended into CLI, desktop, o
 ## 🖼 Screenshots
 | Web Interface | Conversion Example |
 |--------------:|-------------------:|
-| <img src="Demo/Demo.png" alt="Web UI Screenshot" width="50%"/>
+| <img src="Demo/web-ui.png" alt="UI Screenshot" width="50%"/>
 
- | ![Converted text screenshot](images/converted-text.png) |
+ | ![Converted text screenshot](Demo/converted-text.png) |
 
 *(Upload your screenshots into `images/` and keep these paths or change them to match your repo.)*
 
