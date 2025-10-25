@@ -3,7 +3,7 @@
 © 2025 Daham Sathmin.
 
 [![License: GPL‑3.0](https://img.shields.io/badge/License-GPL3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
-[![Python Version](https://img.shields.io/badge/Python-3.x-required-blue.svg)]()
+[![Python Version](https://img.shields.io/badge/Python-3.x-required-blue.svg)](https://www.python.org/downloads/)
 
 ---
 
