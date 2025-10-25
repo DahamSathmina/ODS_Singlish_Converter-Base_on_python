@@ -23,9 +23,9 @@ This project supports a web UI (Flask), and can be extended into CLI, desktop, o
 
 ---
 
-##  preview
+##  DeskTop preview
 <img src="Demo/converted-text.png" alt="UI Screenshot" width="50%"/><img src="Demo/web-ui.png" alt="UI Screenshot" width="50%"/>
-## supported for phones
+## Supported for Phones
 <center><img src="Demo/web-ui-phone.png" alt="UI Screenshot" width="25%"/></center>
 
 ---
@@ -40,7 +40,7 @@ This project supports a web UI (Flask), and can be extended into CLI, desktop, o
 
 ## 🚀 Getting Started
 ### Prerequisites
-- Python 3.x  
+- Python 3.13+
 - Recommended: virtual environment
 
 ### Installation
