@@ -77,7 +77,8 @@ Open `http://localhost:5000` in your browser, paste Singlish input, click **Conv
 ├── requirements.txt        # Python dependencies
 ├── Demo/                 # Screenshots and visuals
 │   ├── web-ui.png
-│   └── converted-text.png
+│   ├── converted-text.png
+│   └── web-ui-phone.png
 ├── static/                 # Front-end assets (css/js)
 ├── templates/              # HTML templates for the web UI
 └── LICENSE                 # GPL-3.0 License
