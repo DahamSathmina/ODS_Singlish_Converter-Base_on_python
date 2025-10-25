@@ -75,7 +75,7 @@ Open `http://localhost:5000` in your browser, paste Singlish input, click **Conv
 ├── app.py                  # Flask web application
 ├── converter.py            # Core Singlish -> Sinhala logic
 ├── requirements.txt        # Python dependencies
-├── Demo/                 # Screenshots and visuals
+├── Demo/                   # Screenshots and visuals
 │   ├── web-ui.png
 │   ├── converted-text.png
 │   └── web-ui-phone.png
