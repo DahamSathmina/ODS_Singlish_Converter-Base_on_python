@@ -2,9 +2,12 @@
 *A powerful tool that converts Singlish (Latin‑script Sinhala) into Sinhala Unicode script*  
 © 2025 Daham Sathmin.
 
-[![License: GPL‑3.0](https://img.shields.io/badge/License-GPL3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
-[![Python Version](https://img.shields.io/badge/Python-3.x-required-blue.svg)](https://www.python.org/downloads/)
-
+<a href="https://www.gnu.org/licenses/gpl-3.0.html">
+  <img src="https://img.shields.io/badge/License-darkgreen?style=for-the-badge" alt="License Button"/>
+</a>
+<a href="https://www.python.org/downloads/">
+  <img src="https://img.shields.io/badge/Python-yellow?style=for-the-badge&logo=github" alt="Python Button"/>
+</a>
 ---
 
 ## 💡 What it does
