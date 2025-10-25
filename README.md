@@ -3,12 +3,11 @@
 © 2025 Daham Sathmin.
 
 <a href="https://www.gnu.org/licenses/gpl-3.0.html">
-  <img src="https://img.shields.io/badge/License-darkgreen?style=for-the-badge" alt="License Button"/>
+  <img src="https://img.shields.io/badge/License-darkgreen?style=for-the-badge" alt="License Button"/>  
 </a>
 <a href="https://www.python.org/downloads/">
   <img src="https://img.shields.io/badge/Python-yellow?style=for-the-badge&logo=github" alt="Python Button"/>
 </a>
----
 
 ## 💡 What it does
 ODS Singlish Converter converts Singlish (Latin-script Sinhala) into Sinhala Unicode text.  
