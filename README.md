@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/badge/License-darkgreen?style=for-the-badge" alt="License Button"/>  
 </a>
 <a href="https://www.python.org/downloads/">
-  <img src="https://img.shields.io/badge/Python-yellow?style=for-the-badge&logo=github" alt="Python Button"/>
+  <img src="https://img.shields.io/badge/Python-yellow?style=for-the-badge&logo=Python" alt="Python Button"/>
 </a>
 
 ## 💡 What it does
