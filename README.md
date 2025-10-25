@@ -17,7 +17,7 @@
 
 ## 💡 What it does
 ODS Singlish Converter converts Singlish (Latin-script Sinhala) into Sinhala Unicode text.  
-Example: `magey hithala` → `මගේ හිතාලා`.
+Example: `kohomadha` → `කොහොමද`.
 
 This project supports a web UI (Flask), and can be extended into CLI, desktop, or a Chrome extension.
 
@@ -75,11 +75,6 @@ python app.py
 ```
 Open `http://localhost:5000` in your browser, paste Singlish input, click **Convert**, and view the Sinhala output.
 
-### Usage — CLI (if available)
-```bash
-python converter.py --input "magey hithala"
-# Output: මගේ හිතාලා
-```
 
 ---
 
