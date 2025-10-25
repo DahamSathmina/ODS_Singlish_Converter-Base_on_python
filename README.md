@@ -31,7 +31,8 @@ This project supports a web UI (Flask), and can be extended into CLI, desktop, o
 ## 🖼 Screenshots
 | Web Interface | Conversion Example |
 |--------------:|-------------------:|
-| ![Web UI Screenshot](Demo/Demo.png)
+| <img src="Demo/Demo.png" alt="Web UI Screenshot" width="50%"/>
+
  | ![Converted text screenshot](images/converted-text.png) |
 
 *(Upload your screenshots into `images/` and keep these paths or change them to match your repo.)*
