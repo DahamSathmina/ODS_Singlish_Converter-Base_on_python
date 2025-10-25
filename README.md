@@ -1,4 +1,4 @@
-> ## ODS Singlish Converter
+## ODS Singlish Converter
 *A powerful tool that converts Singlish (Latin‑script Sinhala) into Sinhala Unicode script*  
 © 2025 Daham Sathmin.
 
