@@ -1,68 +1,64 @@
 import re
 
 vowels = [
-    ("oo", "ඌ", "ූ"), ("u)", "ඌ", "ූ"), ("uu", "ඌ", "ූ"),
-    ("o)", "ඕ", "ෝ"), ("oe", "ඕ", "ෝ"),
-    ("aa", "ආ", "ා"), ("a)", "ආ", "ා"),
-    ("Aa", "ඈ", "ෑ"), ("A)", "ඈ", "ෑ"), ("ae", "ඈ", "ෑ"),
-    ("ii", "ඊ", "ී"), ("i)", "ඊ", "ී"), ("ie", "ඊ", "ී"),
-    ("ee", "ඊ", "ී"),
-    ("ea", "ඒ", "ේ"), ("e)", "ඒ", "ේ"), ("ei", "ඒ", "ේ"),
-    ("au", "ඖ", "ෞ"),
-    ("I", "ඓ", "ෛ"),
-    ("A", "ඇ", "ැ"),
-    ("a", "අ", ""), ("i", "ඉ", "ි"), ("e", "එ", "ෙ"),
-    ("u", "උ", "ු"), ("o", "ඔ", "ො")
+    ("oo", "ඌ", "ූ"), ("o\\)", "ඕ", "ෝ"), ("oe", "ඕ", "ෝ"),
+    ("aa", "ආ", "ා"), ("a\\)", "ආ", "ා"), ("Aa", "ඈ", "ෑ"),
+    ("A\\)", "ඈ", "ෑ"), ("ae", "ඈ", "ෑ"), ("ii", "ඊ", "ී"),
+    ("i\\)", "ඊ", "ී"), ("ie", "ඊ", "ී"), ("ee", "ඊ", "ී"),
+    ("ea", "ඒ", "ේ"), ("e\\)", "ඒ", "ේ"), ("ei", "ඒ", "ේ"),
+    ("uu", "ඌ", "ූ"), ("u\\)", "ඌ", "ූ"), ("au", "ඖ", "ෞ"),
+    ("/\\a", "ඇ", "ැ"), ("a", "අ", ""), ("A", "ඇ", "ැ"),
+    ("i", "ඉ", "ි"), ("e", "එ", "ෙ"), ("u", "උ", "ු"),
+    ("o", "ඔ", "ො"), ("I", "ඓ", "ෛ")
 ]
 
 consonants = [
-    ("nndh", "ඳ"), ("nnd", "ඬ"), ("nng", "ඟ"),
-    ("Th", "ථ"), ("Dh", "ධ"), ("Ch", "ඡ"), ("ph", "ඵ"),
+    ("nnd", "ඬ"), ("nndh", "ඳ"), ("nng", "ඟ"), ("Th", "ථ"),
+    ("Dh", "ධ"), ("gh", "ඝ"), ("Ch", "ඡ"), ("ph", "ඵ"),
     ("bh", "භ"), ("sh", "ශ"), ("Sh", "ෂ"), ("GN", "ඥ"),
-    ("KN", "ඤ"),
-    ("dh", "ද"), ("ch", "ච"), ("kh", "ඛ"), ("th", "ත"),
-    ("gh", "ඝ"),
-    ("t", "ට"), ("k", "ක"), ("d", "ඩ"), ("n", "න"),
-    ("p", "ප"), ("b", "බ"), ("m", "ම"), ("y", "ය"),
+    ("KN", "ඤ"), ("Lu", "ළු"), ("dh", "ද"), ("ch", "ච"),
+    ("kh", "ඛ"), ("th", "ත"), ("t", "ට"), ("k", "ක"),
+    ("d", "ඩ"), ("n", "න"), ("p", "ප"), ("b", "බ"),
+    ("m", "ම"), ("\\u005Cy", "‍ය"), ("Y", "‍ය"), ("y", "ය"),
     ("j", "ජ"), ("l", "ල"), ("v", "ව"), ("w", "ව"),
     ("s", "ස"), ("h", "හ"), ("N", "ණ"), ("L", "ළ"),
-    ("G", "ඝ"), ("T", "ඨ"), ("D", "ඪ"),
-    ("P", "ඵ"), ("B", "ඹ"),
-    ("f", "ෆ"), ("q", "ඣ"), ("g", "ග"),
-    ("r", "ර")
+    ("K", "ඛ"), ("G", "ඝ"), ("T", "ඨ"), ("D", "ඪ"),
+    ("P", "ඵ"), ("B", "ඹ"), ("f", "ෆ"), ("q", "ඣ"),
+    ("g", "ග"), ("r", "ර")
 ]
 
 specials = [
-    (r"\\h", "ඃ"), (r"\\N", "ඞ"), (r"\\R", "ඍ"),
-    (r"R", "ර්‍"), (r"\\r", "ර්‍"),
-    (r"\\n", "ං")
+    ("\\n", "ං"), ("\\h", "ඃ"), ("\\N", "ඞ"), ("\\R", "ඍ"),
+    ("R", "ර්\u200D"), ("\\r", "ර්\u200D")
 ]
 
 special_chars = [
-    ("ruu", "ෲ"),
-    ("ru", "ෘ")
+    ("ruu", "ෲ"), ("ru", "ෘ")
 ]
 
-SINHALA_RANGE = "අ-ෆ"
-
 def convert_to_sinhala(text: str) -> str:
-    # Specials first
+    # Replace special characters first
     for pattern, replacement in specials:
         text = re.sub(pattern, replacement, text)
 
-    # ru/ruu replacements
+    # Replace special chars like "ruu" and "ru"
     for pattern, replacement in special_chars:
         text = text.replace(pattern, replacement)
 
-    # Consonants
+    # Replace consonants
     for pattern, replacement in consonants:
         text = text.replace(pattern, replacement)
 
-    # Vowels
+    # Replace vowels: handle full vowels (start of word or after space) and modifiers (after consonants)
     for pattern, full_vowel, modifier in vowels:
-        escaped_pattern = re.escape(pattern)
-        text = re.sub(rf"(^|\s){escaped_pattern}", rf"\1{full_vowel}", text)
-        text = re.sub(rf"([{SINHALA_RANGE}]){escaped_pattern}", rf"\1{modifier}", text)
+        # Standalone vowels
+        text = re.sub(rf'(^|\s){pattern}', rf'\1{full_vowel}', text)
+        # Vowel modifiers after consonants (range: Sinhala letters: ක-ෆ)
+        text = re.sub(rf'([ක-ෆ]){pattern}', rf'\1{modifier}', text)
 
     return text
+
+
+
+
 
