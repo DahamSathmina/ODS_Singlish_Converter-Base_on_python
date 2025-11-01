@@ -26,9 +26,8 @@ This project supports a web UI (Flask) and desktop, or a Chrome extension.
 ---
 
 ##  DeskTop preview
-<img src="Demo/converted-text.png" alt="UI Screenshot" width="50%"/><img src="Demo/web-ui.png" alt="UI Screenshot" width="70%"/>
-## Supported for Phones
-<center><img src="Demo/web-ui-phone.png" alt="UI Screenshot" width="25%"/></center>
+<img src="Demo/converted-text.png" alt="UI Screenshot" width="50%"/>
+<img src="Demo/web-ui.png" alt="UI Screenshot" width="70%"/>
 
 ---
 
