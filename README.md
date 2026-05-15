@@ -16,12 +16,12 @@ Example: `kohomadha` → `කොහොමද`.
 This project supports a web UI (Flask) and desktop, or a Chrome extension.
 
 ---
-
-## ✅ Key Features
-- Real-time Singlish → Sinhala conversion
-- Web UI built with Python & Flask
-- Lightweight and easy to extend
-- Ready for packaging into a desktop app (PyInstaller) or browser extension
+> [!NOTE]
+>##  Key Features
+>- Real-time Singlish → Sinhala conversion
+>- Web UI built with Python & Flask
+>- Lightweight and easy to extend
+>- Ready for packaging into a desktop app (PyInstaller) or browser extension
 
 ---
 
