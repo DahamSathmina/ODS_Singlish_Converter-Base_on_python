@@ -17,7 +17,6 @@ This project supports a web UI (Flask) and desktop, or a Chrome extension.
 
 ---
 > [!NOTE]
->##  Key Features
 >- Real-time Singlish → Sinhala conversion
 >- Web UI built with Python & Flask
 >- Lightweight and easy to extend
